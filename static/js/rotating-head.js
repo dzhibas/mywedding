@@ -59,12 +59,16 @@
                 rotatingHead.generate();
 
                 elem.data('_rotatingHead', rotatingHead);
+                $(document).mousemove(function(event) {
+                    rotatingHead.mousemove(event);
+                });
             });
         };
 
         function RotatingHead(element, settings)
         {
             this.element = element;
+            this.image = null;
             this.rotatingHead = null;
             this.settings = settings;
             this.x = 0;
@@ -83,16 +87,52 @@
                     return $this.rotatingHead;
                 }
                 //code
-                this.element.html(
-                    $('<img/>', {
+                this.image = $('<img/>', {
                         src: this.settings.imagePath + '0.jpg',
                         width: this.settings.width,
                         border: 0
-                    }));
+                    });
+                this.element.html(this.image);
+
+                this.settings.height = $(this.image).height();
+                var pos = $(this.image).position();
+                this.settings.top = pos.top;
+                this.settings.left = pos.left;
             },
 
-            someFunc: function() {
-                //code
+            mousemove: function(event) {
+                this.getMouseXY(event);
+
+                if (this.x > this.settings.left + this.settings.width && this.y > this.settings.top &&
+                    this.y < this.settings.top + this.settings.height)
+                    $(this.image).attr('src', this.settings.imagePath + '15.jpg');
+
+                if (this.x > this.settings.left+this.settings.width && this.y < this.settings.top)
+                    $(this.image).attr('src', this.settings.imagePath + '13-30.jpg');
+
+                if (this.x > this.settings.left && this.x < this.settings.left+this.settings.width &&
+                    this.y > this.settings.top && this.y < this.settings.top+this.settings.height)
+                    $(this.image).attr('src', this.settings.imagePath + '0.jpg');
+
+                if (this.x > this.settings.left && this.x < this.settings.left+this.settings.width &&
+                    this.y < this.settings.top)
+                    $(this.image).attr('src', this.settings.imagePath + '12.jpg');
+
+                if (this.x > this.settings.left+this.settings.width && this.y > this.settings.top+this.settings.height)
+                    $(this.image).attr('src', this.settings.imagePath + '16-30.jpg');
+
+                if (this.x > this.settings.left && this.x < this.settings.left+this.settings.width &&
+                    this.y > this.settings.top+this.settings.height)
+                    $(this.image).attr('src', this.settings.imagePath + '18.jpg');
+
+                if (this.x < this.settings.left && this.y > this.settings.top+this.settings.height)
+                    $(this.image).attr('src', this.settings.imagePath + '19-30.jpg');
+
+                if (this.x < this.settings.left && this.y > this.settings.top && this.y < this.settings.top + this.settings.height)
+                    $(this.image).attr('src', this.settings.imagePath + '21.jpg');
+                
+                if (this.x < this.settings.left && this.y < this.settings.top)
+                    $(this.image).attr('src', this.settings.imagePath + '22-30.jpg');
             },
 
             preloadImages: function() {
