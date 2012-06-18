@@ -3,16 +3,18 @@
 (function($)
     {
         var defaultSettings = {
-            position    : 'mouse',
-            color       : 'black'
+            imagePath: 'images/',
+            top: 0,
+            left: 0,
+            width: 200,
+            height: 0
         };
 
         $.fn.rotatingHead = function(option, settings) {
 
-            if(typeof option === 'object') {
-
+            if(typeof option === 'object')
+            {
                 settings = option;
-
             } else if(typeof option == 'string') {
 
                 var data = this.data('_rotatingHead');
@@ -52,7 +54,7 @@
                 $settings = jQuery.extend(true, {}, settings);
                 $settings.title = settings.title || elem.attr('title') || 'No title set';
 
-                var rotatingHead = new RotatingHead($settings);
+                var rotatingHead = new RotatingHead(elem, $settings);
 
                 rotatingHead.generate();
 
@@ -60,12 +62,16 @@
             });
         };
 
-        function RotatingHead(settings)
+        function RotatingHead(element, settings)
         {
+            this.element = element;
             this.rotatingHead = null;
             this.settings = settings;
             this.x = 0;
             this.y = 0;
+
+            this.preloadImages();
+
             return this;
         }
 
@@ -76,12 +82,27 @@
                 if($this.rotatingHead) {
                     return $this.rotatingHead;
                 }
-
                 //code
+                this.element.html(
+                    $('<img/>', {
+                        src: this.settings.imagePath + '0.jpg',
+                        width: this.settings.width,
+                        border: 0
+                    }));
             },
 
             someFunc: function() {
                 //code
+            },
+
+            preloadImages: function() {
+                var path = this.settings.imagePath;
+                var images = ['12.jpg', '13-30.jpg', '15.jpg', '16-30.jpg',
+                        '18.jpg', '19-30.jpg', '21.jpg', '22-30.jpg',
+                        '0.jpg'];
+                $.each(images, function(i, v) {
+                    $('<img/>')[0].src = path+v;
+                });
             },
 
             // works on IE6,FF,Moz,Opera7
