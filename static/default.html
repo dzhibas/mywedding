@@ -7,14 +7,16 @@
   <meta name="description" content="">
 </head>
 <body>
-  <div id="photoX"></div>
+  <div id="photoX"></div><br><br>
+  <div id="photoY"></div>
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
   <script src="js/rotating-head.js"></script>
   <script type="text/javascript">
     $(document).ready(function() {
-        $("#photoX").rotatingHead({imagePath: 'img/simuka/', width: '200px'});
+        $("#photoX").rotatingHead({imagePath: 'img/simuka/', width: 200, height: 239});
+        $("#photoY").rotatingHead({imagePath: 'img/simuka/', width: 200, height: 239});
     });
   </script>
 </body>

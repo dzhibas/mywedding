@@ -74,6 +74,11 @@
             this.x = 0;
             this.y = 0;
 
+            this.top = 0;
+            this.left = 0;
+            this.width = 0;
+            this.height = 0;
+
             this.preloadImages();
 
             return this;
@@ -86,52 +91,58 @@
                 if($this.rotatingHead) {
                     return $this.rotatingHead;
                 }
-                //code
                 this.image = $('<img/>', {
                         src: this.settings.imagePath + '0.jpg',
                         width: this.settings.width,
+                        height: this.settings.height,
                         border: 0
                     });
                 this.element.html(this.image);
 
-                this.settings.height = $(this.image).height();
                 var pos = $(this.image).position();
-                this.settings.top = pos.top;
-                this.settings.left = pos.left;
+                this.top = pos.top;
+                this.left = pos.left;
+                this.width = this.settings.width;
+                this.height = $(this.image).height();
             },
 
             mousemove: function(event) {
                 this.getMouseXY(event);
+                console.log(this.image);
+                console.log(this.top, this.left);
 
-                if (this.x > this.settings.left + this.settings.width && this.y > this.settings.top &&
-                    this.y < this.settings.top + this.settings.height)
+                if (this.height === 0)
+                    this.height = $(this.image).height();
+
+                if (this.x > this.left + this.width && this.y > this.top &&
+                    this.y < this.top + this.height)
                     $(this.image).attr('src', this.settings.imagePath + '15.jpg');
 
-                if (this.x > this.settings.left+this.settings.width && this.y < this.settings.top)
+                if (this.x > this.left+this.width && this.y < this.top)
                     $(this.image).attr('src', this.settings.imagePath + '13-30.jpg');
 
-                if (this.x > this.settings.left && this.x < this.settings.left+this.settings.width &&
-                    this.y > this.settings.top && this.y < this.settings.top+this.settings.height)
+                if (this.x > this.left && this.x < this.left+this.width &&
+                    this.y > this.top && this.y < this.top+this.height)
                     $(this.image).attr('src', this.settings.imagePath + '0.jpg');
 
-                if (this.x > this.settings.left && this.x < this.settings.left+this.settings.width &&
-                    this.y < this.settings.top)
+                if (this.x > this.left && this.x < this.left+this.width &&
+                    this.y < this.top)
                     $(this.image).attr('src', this.settings.imagePath + '12.jpg');
 
-                if (this.x > this.settings.left+this.settings.width && this.y > this.settings.top+this.settings.height)
+                if (this.x > this.left+this.width && this.y > this.top+this.height)
                     $(this.image).attr('src', this.settings.imagePath + '16-30.jpg');
 
-                if (this.x > this.settings.left && this.x < this.settings.left+this.settings.width &&
-                    this.y > this.settings.top+this.settings.height)
+                if (this.x > this.left && this.x < this.left+this.width &&
+                    this.y > this.top+this.height)
                     $(this.image).attr('src', this.settings.imagePath + '18.jpg');
 
-                if (this.x < this.settings.left && this.y > this.settings.top+this.settings.height)
+                if (this.x < this.left && this.y > this.top+this.height)
                     $(this.image).attr('src', this.settings.imagePath + '19-30.jpg');
 
-                if (this.x < this.settings.left && this.y > this.settings.top && this.y < this.settings.top + this.settings.height)
+                if (this.x < this.left && this.y > this.top && this.y < this.top + this.height)
                     $(this.image).attr('src', this.settings.imagePath + '21.jpg');
-                
-                if (this.x < this.settings.left && this.y < this.settings.top)
+
+                if (this.x < this.left && this.y < this.top)
                     $(this.image).attr('src', this.settings.imagePath + '22-30.jpg');
             },
 
