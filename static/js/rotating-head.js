@@ -99,7 +99,7 @@
                     });
                 this.element.html(this.image);
 
-                var pos = $(this.image).position();
+                var pos = $(this.element).position();
                 this.top = pos.top;
                 this.left = pos.left;
                 this.width = this.settings.width;
@@ -108,9 +108,7 @@
 
             mousemove: function(event) {
                 this.getMouseXY(event);
-                console.log(this.image);
-                console.log(this.top, this.left);
-
+                
                 if (this.height === 0)
                     this.height = $(this.image).height();
 

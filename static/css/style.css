@@ -1,0 +1,55 @@
+body {
+    background-image: url(../img/bg.jpg);
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 100% auto;
+}
+
+#photoX {
+    width: 200px;
+    height: 239px;
+    position: absolute;
+    display: inline-block;
+    top: 200px;
+    left: 200px;
+}
+
+#photoY {
+    width: 200px;
+    height: 239px;
+    position: absolute;
+    display: inline-block;
+    top: 200px;
+    left: 1140px;
+}
+
+h1 {
+    font-family: 'Parisienne', cursive;
+    font-weight: 400;
+    color: white;
+}
+
+#form {
+    width: 600px;
+    height: 300px;
+    padding-left: 30px;
+    position: absolute;
+    top: 200px;
+    left: 450px;
+    background-color: #000;
+    background-color: rgba(0,0,0,.5);
+/*  opacity: 0.5;
+    -moz-opacity: 0.5;
+    filter:alpha(opacity=0.5);*/
+
+    font-family: 'Parisienne', cursive;
+    font-weight: 400;
+    font-size: 20px;
+    color: white;
+}
+
+.container {
+/*  opacity: 1;
+    -moz-opacity: 1;
+    filter:alpha(opacity=1);*/
+}
