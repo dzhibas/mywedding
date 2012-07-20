@@ -1,0 +1,30 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>RSVP</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+  {% block content %}{% endblock content %}
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
+
+  <!-- TODO preload heads in first and second pin. If possible music too -->
+  
+  <script src="/static/js/preload.js"></script>
+  <script src="/static/js/rotating-head.js"></script>
+
+  <!--
+  <script type="text/javascript">
+    $(document).ready(function() {
+        $("#photoX").rotatingHead({imagePath: '/static/img/simuka/', width: 200, height: 239});
+        $("#photoY").rotatingHead({imagePath: '/static/img/simuka/', width: 200, height: 239});
+    });
+  </script>
+  -->
+</body>
+</html>
