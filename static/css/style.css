@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Istok+Web:400,700&subset=latin,latin-ext,cyrillic-ext,cyrillic);
+@import url(http://fonts.googleapis.com/css?family=Ubuntu+Condensed|Istok+Web:400,700&subset=latin,latin-ext,cyrillic-ext,cyrillic);
 
 body {
     background-image: url(/static/img/bg.jpg);
@@ -24,13 +24,87 @@ body {
     background-image: url(/static/img/bg.jpg);
 }
 
+#pin2-container {
+    width: 500px;
+    min-height: 230px;
+    margin: 70px auto 0 auto;
+    padding: 10px;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.rgba #pin2-container {
+    background-color: rgba(0,0,0,.5);
+}
+
+.no-rgba #pin2-container {
+    background-image: url(/static/img/bg.jpg);
+}
+
+#pin1-arrow {
+    position: absolute;
+    padding-top: 10px;
+    padding-left: 25px;
+    /*display: inline-block;*/
+}
+
+.cssanimations #pin1-arrow {
+    -webkit-animation: point-to 1s infinite;
+    -moz-animation: point-to 1s infinite;
+}
+
+.no-cssanimations #pin1-arrow {
+    display: none;
+}
+
+#pin2-arrow {
+    position: absolute;
+    padding-top: 10px;
+    padding-left: 25px;
+    -webkit-animation: point-2 1s infinite;
+}
+
+@-webkit-keyframes point-to {
+    0% { -webkit-transform: translate3d(0,   0,0); 
+         -webkit-animation-timing-function: ease-in; }
+   40% { -webkit-transform: translate3d(30px, 0, 0); 
+         -webkit-animation-timing-function: ease-out; }
+  100% { -webkit-transform: translate3d(0,   0,0); }
+}
+
+@-moz-keyframes point-to {
+    0% { -moz-transform: translate(0,0); 
+         -moz-animation-timing-function: ease-in; }
+   40% { -moz-transform: translate(50px,0); 
+         -moz-animation-timing-function: ease-out; }
+  100% { -moz-transform: translate(0,0); }
+}
+
+@-webkit-keyframes point-2 {
+    0% { -webkit-transform: scaleX(-1); 
+         -webkit-transform: translate(0, 0); 
+         -webkit-animation-timing-function: ease-in; }
+   40% { -webkit-transform: scaleX(-1);
+         -webkit-transform: translate(-30px, 0); 
+         -webkit-animation-timing-function: ease-out; }
+  100% { -webkit-transform: scaleX(-1);
+         -webkit-transform: translate(0,   0); }
+}
+
 .pin1-head {
     float: left;
+    width: 108px;
     padding: 20px 20px 40px 0px;
 }
 
+.pin2-head {
+    float: right;
+    width: 108px;
+    padding: 20px 0 40px 20px;
+}
+
 .pin1-title h1 {
-    font-family: 'Istok Web', Arial, serif;
+    font-family: 'Ubuntu Condensed', Arial, serif;
     font-weight: 700;
     size: 25px;
     color: #fff;
@@ -38,11 +112,11 @@ body {
 }
 
 .pin1-title h2 {
-    font-family: 'Istok Web', Arial, serif;
+    font-family: 'Ubuntu Condensed', Arial, serif;
     font-weight: 400;
     font-size: 19px;
     color: #fff;
-    line-height: 90%;
+    line-height: 120%;
 }
 
 .pin1-input input {
@@ -56,6 +130,16 @@ body {
     border: 1px solid #9E9E9E;
 }
 
+.pin2-input select {
+    font-family: Arial, serif;
+    font-weight: bold;
+    font-size: 25px;
+    border: 0;
+    width: auto;
+    height: 50px;
+    text-align: center;
+    border: 1px solid #9E9E9E;
+}
 
 #photoX {
     width: 200px;
