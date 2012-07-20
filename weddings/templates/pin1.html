@@ -16,7 +16,11 @@
     </div>
 
     <div class="pin1-input">
-        <input type="text" value="xxxx">
+        <form action="" method="post">
+            {% csrf_token %}
+            <input type="text" value="xxxx">
+            <input type="submit">            
+        </form>
     </div>
 </div>
 {% endblock content %}
