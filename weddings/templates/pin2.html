@@ -23,10 +23,14 @@
     {% endfor %}
     
     <div class="pin2-input">
-        <select name="" id="">
-            <option value="">Nikolajus Krauklis</option>
-            <option value="">Simona Butkutė</option>
-        </select>
+        <form action="" method="post">
+            {% csrf_token %}
+            <select name="" id="">
+                <option value="">Nikolajus Krauklis</option>
+                <option value="">Simona Butkutė</option>
+            </select>
+            <input type="submit" value="go">
+        </form>
     </div>
 </div>
 {% endblock content %}

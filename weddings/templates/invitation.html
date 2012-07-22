@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% load markup %}
+
+{% block content %}
+	Invitation itself
+	{{invitation.invitation_text.body|markdown}}
+	{{guests}}
+{% endblock content %}

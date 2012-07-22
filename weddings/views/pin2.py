@@ -4,6 +4,7 @@ from django.core.urlresolvers import reverse
 from django.contrib import messages
 from weddings.models import Invitation
 
+
 class Pin2View(TemplateView):
     template_name = "pin2.html"
     guest_list = None
@@ -17,6 +18,12 @@ class Pin2View(TemplateView):
                 return super(Pin2View, self).get(request, *args, **kwargs)
 
         return HttpResponseRedirect(reverse('pin1'))
+
+    def post(self, request, *args, **kwargs):
+        # double check if guest is from invitation which is logged
+        # set session of logged in guest
+        # check if there is nothing to create (lonely guest can create other guest in pair)
+        return HttpResponseRedirect(reverse('invitation'))
 
     def check_pin(self, pin):
         try:
