@@ -7,6 +7,9 @@ class Invitation(models.Model):
             max_length=6)
     invitation_text = models.ForeignKey("InvitationTextTemplate")
 
+    def __unicode__(self):
+        return self.invite_code
+
 
 class InvitationTextTemplate(models.Model):
     name = models.CharField(max_length=150)
@@ -25,7 +28,15 @@ class WeddingGuest(models.Model):
 
     # invited by others
     invited = models.BooleanField(default=False)
+    invited_by = models.ForeignKey('WeddingGuest', blank=True, null=True)
+
     email = models.CharField(max_length=255)
 
     def __unicode__(self):
         return "%s %s <%s>" % (self.first_name, self.last_name, self.email)
+
+
+class CodeGuess(models.Model):
+    ip = models.IPAddressField()
+    when_tried = models.DateTimeField(auto_now=True, auto_now_add=True)
+    guess_code = models.CharField(max_length=255, blank=True, null=True)

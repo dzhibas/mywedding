@@ -2,7 +2,8 @@ from django.views.generic import TemplateView
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.contrib import messages
-from weddings.models import Invitation
+from weddings.models import Invitation, CodeGuess
+from django.db import transaction
 
 class Pin1View(TemplateView):
     template_name = "pin1.html"
@@ -19,7 +20,13 @@ class Pin1View(TemplateView):
     def post(self, request):
         if 'pin' not in request.POST or request.POST['pin'].strip() == '':
             messages.error(request, 'No pin provided')
+            # log empty try of guess
+            CodeGuess.objects.create(ip=self.ip_addr(request), guess_code='')
             return HttpResponseRedirect(reverse('pin1'))
+
+        # log guess trying    
+        CodeGuess.objects.create(ip=self.ip_addr(request), guess_code=request.POST['pin'])
+        
         try:
             obj = Invitation.objects.get(invite_code=request.POST['pin'])
             request.session['logged_pin'] = obj.invite_code
@@ -41,3 +48,7 @@ class Pin1View(TemplateView):
             return True
         except Invitation.DoesNotExist:
             return False
+
+    def ip_addr(self, request):
+        if 'REMOTE_ADDR' in request.META:
+            return request.META['REMOTE_ADDR'] 
