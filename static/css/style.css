@@ -123,11 +123,15 @@ body {
     font-family: Arial, serif;
     font-weight: bold;
     font-size: 25px;
-    border: 0;
     width: 200px;
     height: 50px;
     text-align: center;
     border: 1px solid #9E9E9E;
+}
+
+.pin1-input input[type=submit]
+{
+    width: 100px;
 }
 
 .pin2-input select {

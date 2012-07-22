@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
+{% for message in  messages %}
+    {{message.tags}} {{message}}
+{% endfor %}
 <div id="pin2-container">
     <div class="pin2-head">
         <img src="/static/img/simuka-security.png" width="108" height="108" border="0" alt="">
@@ -15,7 +18,10 @@
         <h2>dabar norėtume sužinoti kuris būtent esate</h2>
         <h2>pasirinkite žemiau esančiame langelyje savo vardą/pavardę ar slapyvardį<h2>
     </div>
-
+    {% for guest in guests  %}
+    {{guest}} !!!    
+    {% endfor %}
+    
     <div class="pin2-input">
         <select name="" id="">
             <option value="">Nikolajus Krauklis</option>

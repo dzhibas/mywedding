@@ -21,6 +21,8 @@ class WeddingGuest(models.Model):
     first_name = models.CharField(max_length=150)
     last_name = models.CharField(max_length=150)
 
+    invitation = models.ForeignKey('Invitation', blank=True, null=True, on_delete=models.SET_NULL)
+
     # invited by others
     invited = models.BooleanField(default=False)
     email = models.CharField(max_length=255)

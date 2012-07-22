@@ -11,6 +11,11 @@
     </div>
 
     <div class="pin1-title">
+        {% if messages %}
+            {% for message in  messages%}
+                {{message}}
+            {% endfor %}
+        {% endif %}
         <h1>Jei užėjote čia, reiškia esate pakviesti</h1>
         <h2>bet mes įtarūs, tad įveskite prašom kodą kurį gavote kartu su el. pakvietimu:<h2>
     </div>
@@ -18,8 +23,7 @@
     <div class="pin1-input">
         <form action="" method="post">
             {% csrf_token %}
-            <input type="text" value="xxxx">
-            <input type="submit">            
+            <input type="text" value="xxxx" name="pin"> <input type="submit" value="Toliau">
         </form>
     </div>
 </div>
