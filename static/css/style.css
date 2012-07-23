@@ -7,6 +7,23 @@ body {
     background-size: 100% auto;
 }
 
+.invitation-container {
+    width: 700px;
+    min-height: 300px;
+    margin: 70px auto 0 auto;
+    padding: 10px;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.rgba .invitation-container {
+    background-color: rgba(0,0,0,.5);
+}
+
+.no-rgba .invitation-container {
+    background-image: url(/static/img/bg.jpg);
+}
+
 #pin1-container {
     width: 500px;
     min-height: 230px;
@@ -114,7 +131,7 @@ body {
     width: 360px;
 }
 
-.pin1-title h1 {
+.pin1-title h1, .invitation-container h1 {
     font-family: 'Ubuntu Condensed', Arial, serif;
     font-weight: 700;
     size: 25px;

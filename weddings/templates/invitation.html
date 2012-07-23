@@ -2,7 +2,29 @@
 {% load markup %}
 
 {% block content %}
-	Invitation itself
-	{{invitation.invitation_text.body|markdown}}
-	{{guests}}
+
+<div class="invitation-container">
+    <h1>{{invitation.invitation_text.title}}</h1>
+
+    <div class="invitation-body">
+        {{invitation.invitation_text.body|markdown}}
+    </div>
+
+    <h2>Please confirm you will be there</h2>
+
+    <div class="guest_list">
+        {% for guest in guests %}
+            {{guest.fullname}} - {{guest.get_rsvp_answer_display}} <a href="">Yes i will be</a> | <a href="">Maybe</a> | <a href="">I cannot be</a><br/>
+        {% endfor %}
+    </div>
+
+    <div class="questions">
+        <h2>Other questions</h2>
+
+        1. are you vegetarian ?<br/>
+        2. who are you?<br/>
+        3. need sleep ?
+    </div>
+</div>
+
 {% endblock content %}

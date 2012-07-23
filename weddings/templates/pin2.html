@@ -18,16 +18,15 @@
         <h2>dabar norėtume sužinoti kuris būtent esate</h2>
         <h2>pasirinkite žemiau esančiame langelyje savo vardą/pavardę ar slapyvardį<h2>
     </div>
-    {% for guest in guests  %}
-    {{guest}} !!!
-    {% endfor %}
     
     <div class="pin2-input">
         <form action="" method="post">
             {% csrf_token %}
-            <select name="" id="">
-                <option value="">Nikolajus Krauklis</option>
-                <option value="">Simona Butkutė</option>
+            <select name="guest" id="">
+                <option value="">Who are you ?</option>
+                {% for guest in guests  %}
+                    <option value="{{guest.id}}">{{guest.fullname}}</option>
+                {% endfor %}
             </select>
             <input type="submit" value="go">
         </form>

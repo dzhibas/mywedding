@@ -21,6 +21,13 @@ class InvitationTextTemplate(models.Model):
 
 
 class WeddingGuest(models.Model):
+    RSVP_ANSWERS = (
+            (0, "Not answered"),
+            (1, "Will attend"),
+            (2, "Will not attend"),
+            (3, "Maybe")
+        )
+
     first_name = models.CharField(max_length=150)
     last_name = models.CharField(max_length=150)
 
@@ -31,6 +38,11 @@ class WeddingGuest(models.Model):
     invited_by = models.ForeignKey('WeddingGuest', blank=True, null=True)
 
     email = models.CharField(max_length=255)
+
+    rsvp_answer = models.PositiveSmallIntegerField(choices=RSVP_ANSWERS, default=0)
+
+    def fullname(self):
+        return "%s %s" % (self.first_name, self.last_name)
 
     def __unicode__(self):
         return "%s %s <%s>" % (self.first_name, self.last_name, self.email)
