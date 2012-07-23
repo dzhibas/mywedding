@@ -127,6 +127,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.markup',
     'django.contrib.admin',
+    'django.contrib.flatpages',
     'south',
     'django_markdown',
     'debug_toolbar',
