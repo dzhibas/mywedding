@@ -103,6 +103,17 @@ body {
     padding: 20px 0 40px 20px;
 }
 
+.pin1-title {
+    float: right;
+    width: 360px;
+    display: inline-block;
+}
+
+.pin1-input {
+    float: right;
+    width: 360px;
+}
+
 .pin1-title h1 {
     font-family: 'Ubuntu Condensed', Arial, serif;
     font-weight: 700;
