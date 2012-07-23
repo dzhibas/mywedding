@@ -3,7 +3,8 @@ from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.contrib import messages
 from weddings.models import Invitation, CodeGuess
-from django.db import transaction
+from datetime import datetime, timedelta
+
 
 class Pin1View(TemplateView):
     template_name = "pin1.html"
@@ -24,9 +25,17 @@ class Pin1View(TemplateView):
             CodeGuess.objects.create(ip=self.ip_addr(request), guess_code='')
             return HttpResponseRedirect(reverse('pin1'))
 
-        # log guess trying    
+        # check if there is not too much tries
+        guesses = CodeGuess.objects.filter(when_tried__gt=datetime.today() - timedelta(hours=3), \
+                                            ip=self.ip_addr(request))
+        if len(guesses) > 4:
+            CodeGuess.objects.create(ip=self.ip_addr(request), guess_code=request.POST['pin'])
+            messages.error(request, 'Too many tries. You locked for next 3 hours')
+            return HttpResponseRedirect(reverse('pin1'))
+
+        # log guess trying
         CodeGuess.objects.create(ip=self.ip_addr(request), guess_code=request.POST['pin'])
-        
+
         try:
             obj = Invitation.objects.get(invite_code=request.POST['pin'])
             request.session['logged_pin'] = obj.invite_code
@@ -51,4 +60,4 @@ class Pin1View(TemplateView):
 
     def ip_addr(self, request):
         if 'REMOTE_ADDR' in request.META:
-            return request.META['REMOTE_ADDR'] 
+            return request.META['REMOTE_ADDR']

@@ -40,3 +40,6 @@ class CodeGuess(models.Model):
     ip = models.IPAddressField()
     when_tried = models.DateTimeField(auto_now=True, auto_now_add=True)
     guess_code = models.CharField(max_length=255, blank=True, null=True)
+
+    def __unicode__(self):
+        return "%s - %s - %s" % (self.when_tried, self.ip, self.guess_code)
