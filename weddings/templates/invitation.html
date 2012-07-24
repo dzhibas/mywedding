@@ -15,17 +15,16 @@
     <div class="guest_list">
         {% for guest in guests %}
             {{guest.full_name}} - {{guest.get_rsvp_answer_display}}
-
             <div class="btn-group" data-toggle="buttons-radio">
-              <button onclick="window.location.href='/answer/{{guest.id}}/1';" class="btn btn-primary btn-small {if guest.rsvp_answer==1}active{/if}">
+              <button onclick="window.location.href='/answer/{{guest.id}}/1/';" class="btn btn-primary btn-small {% if guest.rsvp_answer == 1 %}active{%endif%}">
                 <i class="icon-thumbs-up icon-white"></i>
                 Yes i will
               </button>
-              <button onclick="window.location.href='/answer/{{guest.id}}/3';" class="btn btn-primary btn-small {if guest.rsvp_answer==3}active{/if}">
+              <button onclick="window.location.href='/answer/{{guest.id}}/3/';" class="btn btn-primary btn-small {% if guest.rsvp_answer == 3 %}active{%endif%}">
                 <i class="icon-question-sign icon-white"></i>
                 Maybe
               </button>
-              <button onclick="window.location.href='/answer/{{guest.id}}/2';" class="btn btn-primary btn-small {if guest.rsvp_answer==2}active{/if}">
+              <button onclick="window.location.href='/answer/{{guest.id}}/2/';" class="btn btn-primary btn-small {% if guest.rsvp_answer == 2 %}active{%endif%}">
                 <i class="icon-thumbs-down icon-white"></i>
                 No
               </button>

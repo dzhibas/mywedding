@@ -2,6 +2,7 @@ from django.views.generic import RedirectView
 from django.core.urlresolvers import reverse_lazy
 from django.views.decorators.cache import never_cache
 from weddings.models import WeddingGuest, Invitation
+import datetime
 
 
 class RsvpAnswerView(RedirectView):
@@ -22,7 +23,7 @@ class RsvpAnswerView(RedirectView):
         if invitation == False:
             return response
 
-        answer_id = kwargs['answer_id']
+        answer_id = int(kwargs['answer_id'])
 
         # check if provided answer id is valid,if not redirect
         possible_answers = [a[0] for a in list(WeddingGuest.RSVP_ANSWERS)]
@@ -30,7 +31,20 @@ class RsvpAnswerView(RedirectView):
             return response
 
         # check if logged in user can answer for person provided
-        person_id = kwargs['person_id']
+        person_id = int(kwargs['person_id'])
+        persons_ids_allowed = [person.id for person in invitation.weddingguest_set.all()]
+
+        if person_id not in persons_ids_allowed:
+            return response
+
+        try:
+            selected_person = invitation.weddingguest_set.get(id=person_id)
+            if selected_person.rsvp_answer != answer_id:
+                selected_person.rsvp_answer = answer_id
+                selected_person.rsvp_change_datetime = datetime.datetime.today()
+                selected_person.save()
+        except WeddingGuest.DoesNotExist:
+            return response
 
         return response
 
