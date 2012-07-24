@@ -1,4 +1,6 @@
 from django.db import models
+# from django.db.models import signals
+# from weddings.signals import invitation_created
 
 
 class Invitation(models.Model):
@@ -6,9 +8,12 @@ class Invitation(models.Model):
             help_text="leave it empty, it will be generated automatically on creation of invitation",
             max_length=6)
     invitation_text = models.ForeignKey("InvitationTextTemplate")
+    friends = models.ManyToManyField("WeddingGuest", related_name="+", blank=True)
 
     def __unicode__(self):
         return self.invite_code
+
+# signals.pre_save.connect(invitation_created, sender=Invitation)
 
 
 class InvitationTextTemplate(models.Model):
@@ -37,12 +42,14 @@ class WeddingGuest(models.Model):
     invited = models.BooleanField(default=False)
     invited_by = models.ForeignKey('WeddingGuest', blank=True, null=True)
 
-    email = models.CharField(max_length=255)
+    email = models.CharField(max_length=255, blank=True, null=True)
 
     rsvp_answer = models.PositiveSmallIntegerField(choices=RSVP_ANSWERS, default=0)
+    rsvp_change_datetime = models.DateTimeField(blank=True, null=True)
 
-    def fullname(self):
+    def _get_fullname(self):
         return "%s %s" % (self.first_name, self.last_name)
+    full_name = property(_get_fullname)
 
     def __unicode__(self):
         return "%s %s <%s>" % (self.first_name, self.last_name, self.email)
