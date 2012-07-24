@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from weddings.models import Invitation
 
+
 class InvitationView(TemplateView):
     template_name = "invitation.html"
 

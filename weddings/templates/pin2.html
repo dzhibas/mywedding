@@ -25,7 +25,7 @@
             <select name="guest" id="">
                 <option value="">Who are you ?</option>
                 {% for guest in guests  %}
-                    <option value="{{guest.id}}">{{guest.fullname}}</option>
+                    <option value="{{guest.id}}">{{guest.full_name}}</option>
                 {% endfor %}
             </select>
             <input type="submit" value="go">
