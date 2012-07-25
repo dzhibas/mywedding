@@ -68,5 +68,7 @@ class Pin1View(TemplateView):
             return False
 
     def ip_addr(self, request):
-        if 'REMOTE_ADDR' in request.META:
+        if 'HTTP_X_REAL_IP' not in request.META:
             return request.META['REMOTE_ADDR']
+        else:
+            return request.META['HTTP_X_REAL_IP']
