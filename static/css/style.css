@@ -93,7 +93,7 @@ body {
 @-moz-keyframes point-to {
     0% { -moz-transform: translate(0,0); 
          -moz-animation-timing-function: ease-in; }
-   40% { -moz-transform: translate(50px,0); 
+   40% { -moz-transform: translate(30px,0); 
          -moz-animation-timing-function: ease-out; }
   100% { -moz-transform: translate(0,0); }
 }
