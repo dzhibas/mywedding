@@ -160,20 +160,19 @@ body {
   font-size: 15px;
   line-height: normal;
 }
+
 .pin1-input input[type=submit] {
   margin-top:0;
   margin-left:0;
 }
 
 .pin2-input select {
-    font-family: Arial, serif;
-    font-weight: bold;
-    font-size: 25px;
-    border: 0;
-    width: auto;
-    height: 50px;
-    text-align: center;
-    border: 1px solid #9E9E9E;
+  font-size: 15px;
+  line-height: normal;
+}
+
+.pin2-input input[type=submit] {
+    margin: 0;
 }
 
 #photoX {

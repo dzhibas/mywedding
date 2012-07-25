@@ -19,10 +19,30 @@ class Pin2View(TemplateView):
 
         return HttpResponseRedirect(reverse('pin1'))
 
+    # todo - check if lonely guest dont want to get friend
     def post(self, request, *args, **kwargs):
-        # double check if guest is from invitation which is logged
-        # set session of logged in guest
-        # check if there is nothing to create (lonely guest can create other guest in pair)
+        if 'pin_provided' not in request.session and 'logged_pin' not in request.session:
+            return HttpResponseRedirect(reverse('pin1'))
+
+        invitation = self.check_pin(request.session['logged_pin'])
+        if invitation == False:
+            return HttpResponseRedirect(reverse('pin1'))
+
+        if 'guest' not in request.POST or request.POST['guest'] == '':
+            messages.error(request, 'Please select one person')
+            return HttpResponseRedirect(reverse('pin2'))
+
+        guests = invitation.weddingguest_set.all()
+        allowed_guest_ids = [guest.id for guest in guests]
+
+        guest_id = int(request.POST['guest'])
+
+        if guest_id not in allowed_guest_ids:
+            messages.error(request, 'No chance you can select this person')
+            return HttpResponseRedirect(reverse('pin2'))
+
+        request.session['logged_in_quest'] = guest_id
+
         return HttpResponseRedirect(reverse('invitation'))
 
     def check_pin(self, pin):

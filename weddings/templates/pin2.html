@@ -1,35 +1,37 @@
 {% extends "base.html" %}
 
 {% block content %}
-{% for message in  messages %}
-    {{message.tags}} {{message}}
-{% endfor %}
-<div id="pin2-container">
+<div id="pin2-container" class="clearfix">
     <div class="pin2-head">
         <img src="/static/img/simuka-security.png" width="108" height="108" border="0" alt="">
-
-        <div id="pin2-arrow">
-            <img src="/static/img/arrow.png" width="70px" height="59" border="0" alt="">
-        </div>
     </div>
 
     <div class="pin1-title">
+        {% if messages %}
+            {% for message in  messages%}
+                <div class="alert alert-error pin1-alert">
+                    {{message}}
+                </div>
+            {% endfor %}
+        {% endif %}
         <h1>Hey! Jūs tikrai pakviesti. Džiaugiuosi kad užėjot</h1>
         <h2>dabar norėtume sužinoti kuris būtent esate</h2>
         <h2>pasirinkite žemiau esančiame langelyje savo vardą/pavardę ar slapyvardį<h2>
+        <div class="pin2-input">
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="input-append controls">
+                    <select name="guest" id="" class="input-medium appendedInputButtons">
+                        <option value="">nurodyk kas tu ?</option>
+                        {% for guest in guests  %}
+                            <option value="{{guest.id}}">{{guest.full_name}}</option>
+                        {% endfor %}
+                    </select>
+                    <input type="submit" value="toliau" class="btn btn-medium btn-primary">
+                </div>
+            </form>
+        </div>
     </div>
     
-    <div class="pin2-input">
-        <form action="" method="post">
-            {% csrf_token %}
-            <select name="guest" id="">
-                <option value="">Who are you ?</option>
-                {% for guest in guests  %}
-                    <option value="{{guest.id}}">{{guest.full_name}}</option>
-                {% endfor %}
-            </select>
-            <input type="submit" value="go">
-        </form>
-    </div>
 </div>
 {% endblock content %}
