@@ -1,5 +1,6 @@
 from django import forms
 from weddings.models import Invitation, WeddingGuest
+from django.db.models import Q
 from django.utils.crypto import get_random_string
 
 
@@ -10,12 +11,13 @@ class InvitationForm(forms.ModelForm):
     ALLOWED_CHARS = 'ABCDEFGHKMNPQRSTUVWXYZ23456789'
 
     invite_code = forms.CharField(max_length=10, initial=get_random_string(6, ALLOWED_CHARS))
-    invitation_guests = forms.ModelMultipleChoiceField(queryset=WeddingGuest.objects.all())
+    invitation_guests = forms.ModelMultipleChoiceField(queryset=WeddingGuest.objects.filter(Q(invitation__isnull=True)))
 
     def __init__(self, *args, **kwargs):
         super(InvitationForm, self).__init__(*args, **kwargs)
         if self.instance:
             self.fields['invitation_guests'].initial = self.instance.weddingguest_set.all()
+            self.fields['invitation_guests'].queryset = WeddingGuest.objects.filter(Q(invitation__isnull=True) | Q(invitation=self.instance.id))
 
     def save(self, *args, **kwargs):
         instance = super(InvitationForm, self).save(commit=False)
