@@ -52,7 +52,7 @@ class WeddingGuest(models.Model):
         )
 
     first_name = models.CharField(max_length=150)
-    last_name = models.CharField(max_length=150)
+    last_name = models.CharField(max_length=150, blank=True, null=True)
 
     invitation = models.ForeignKey('Invitation', blank=True, null=True, on_delete=models.SET_NULL,
                             verbose_name=u'Invitation letter guest is assigned')

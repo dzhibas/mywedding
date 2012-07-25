@@ -38,5 +38,6 @@ class GuestsAdmin(admin.ModelAdmin):
     list_display = ('full_name', 'email', 'rsvp_answer', 'rsvp_change_datetime')
     list_filter = ('rsvp_answer', )
     search_fields = ['email', 'first_name', 'last_name']
+    fields = ('first_name', 'last_name', 'email', )
 
 admin.site.register(WeddingGuest, GuestsAdmin)
