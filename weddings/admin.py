@@ -24,7 +24,14 @@ class InvitationAdmin(admin.ModelAdmin):
 
 admin.site.register(Invitation, InvitationAdmin)
 admin.site.register(InvitationTextTemplate, MarkdownModelAdmin)
-admin.site.register(CodeGuess)
+
+
+class CodeGuessAdmin(admin.ModelAdmin):
+    list_display = ('ip', 'when_tried', 'guess_code', )
+    date_hierarchy = 'when_tried'
+    search_fields = ['ip']
+
+admin.site.register(CodeGuess, CodeGuessAdmin)
 
 
 class GuestsAdmin(admin.ModelAdmin):
