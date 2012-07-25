@@ -59,10 +59,11 @@ body {
 }
 
 #pin1-arrow {
-    position: absolute;
-    padding-top: 10px;
-    padding-left: 25px;
-    /*display: inline-block;*/
+    position: relative;
+    padding-top: 0px;
+    float: left;
+    left: -105px;
+    top: -63px;
 }
 
 .cssanimations #pin1-arrow {
@@ -131,6 +132,13 @@ body {
     width: 360px;
 }
 
+.pin1-alert {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size:12px;
+    padding: 5px;
+    background-color: #fff;
+}
+
 .pin1-title h1, .invitation-container h1 {
     font-family: 'Ubuntu Condensed', Arial, serif;
     font-weight: 700;
@@ -147,19 +155,14 @@ body {
     line-height: 120%;
 }
 
-.pin1-input input {
-    font-family: Arial, serif;
-    font-weight: bold;
-    font-size: 25px;
-    width: 200px;
-    height: 50px;
-    text-align: center;
-    border: 1px solid #9E9E9E;
+.pin1-input input[type=text] {
+  padding: 8px 14px;
+  font-size: 15px;
+  line-height: normal;
 }
-
-.pin1-input input[type=submit]
-{
-    width: 100px;
+.pin1-input input[type=submit] {
+  margin-top:0;
+  margin-left:0;
 }
 
 .pin2-input select {

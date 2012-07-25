@@ -4,16 +4,14 @@
 <div id="pin1-container">
     <div class="pin1-head">
         <img src="/static/img/simuka-security.png" width="108" height="108" border="0" alt="">
-
-        <div id="pin1-arrow">
-            <img src="/static/img/arrow.png" width="70px" height="59" border="0" alt="">
-        </div>
     </div>
 
     <div class="pin1-title">
         {% if messages %}
             {% for message in  messages%}
-                {{message}}
+                <div class="alert alert-error pin1-alert">
+                    {{message}}
+                </div>
             {% endfor %}
         {% endif %}
         <h1>Jei užėjote čia, reiškia esate pakviesti</h1>
@@ -23,7 +21,13 @@
     <div class="pin1-input">
         <form action="" method="post">
             {% csrf_token %}
-            <input type="text" value="xxxx" name="pin"> <input type="submit" value="Toliau">
+            <div class="input-append">
+                <input type="text" placeholder="CODE" name="pin" value="{%if pin%}{{pin}}{%endif%}" class="input-small appendedInputButtons">
+                <input type="submit" value="Toliau" class="btn btn-large btn-primary">
+            </div>
+            <div id="pin1-arrow">
+                <img src="/static/img/arrow.png" width="70px" height="59" border="0" alt="">
+            </div>
         </form>
     </div>
 </div>

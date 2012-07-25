@@ -8,12 +8,17 @@ from datetime import datetime, timedelta
 
 class Pin1View(TemplateView):
     template_name = "pin1.html"
+    error = False
+    pin = None
 
     def get(self, request, *args, **kwargs):
         if 'pin_provided' in request.session and 'logged_pin' in request.session:
             if self.check_pin(request.session['logged_pin']):
                 messages.success(request, 'Already verified')
                 return HttpResponseRedirect(reverse('pin2'))
+
+        if 'post_pin' in request.session:
+            self.pin = request.session['post_pin'].strip()
 
         response = super(Pin1View, self).get(request, *args, **kwargs)
         return response
@@ -24,6 +29,8 @@ class Pin1View(TemplateView):
             # log empty try of guess
             CodeGuess.objects.create(ip=self.ip_addr(request), guess_code='')
             return HttpResponseRedirect(reverse('pin1'))
+
+        request.session['post_pin'] = request.POST['pin'].strip()
 
         # check if there is not too much tries
         guesses = CodeGuess.objects.filter(when_tried__gt=datetime.today() - timedelta(hours=3), \
@@ -49,6 +56,8 @@ class Pin1View(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(Pin1View, self).get_context_data(**kwargs)
+        context['error'] = self.error
+        context['pin'] = self.pin
         return context
 
     def check_pin(self, pin):
