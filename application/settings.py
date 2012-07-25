@@ -8,15 +8,17 @@ ADMINS = (
     ('Nikolajus', 'nikolajus@gmail.com'),
 )
 
+SENTRY_DSN = 'http://1a96de74a21846a69b8aaee9d3013136:00bb1806628c4e12a37247c8d7743bb2@server.gang.lt/4'
+
 MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',  # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'dev.db',                      # Or path to database file if using sqlite3.
-        'USER': '',                      # Not used with sqlite3.
-        'PASSWORD': '',                  # Not used with sqlite3.
-        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',  # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'wedding',                      # Or path to database file if using sqlite3.
+        'USER': 'wedding',                      # Not used with sqlite3.
+        'PASSWORD': 'PASSWORD',                  # Not used with sqlite3.
+        'HOST': 'localhost',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
 }
@@ -128,6 +130,7 @@ INSTALLED_APPS = (
     'django.contrib.markup',
     'django.contrib.admin',
     'django.contrib.flatpages',
+    'raven.contrib.django',
     'south',
     'django_markdown',
     'debug_toolbar',
