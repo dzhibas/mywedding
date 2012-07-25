@@ -6,4 +6,3 @@ django-markdown==0.1.0
 gunicorn==0.14.5
 raven==2.0.3
 simplejson==2.4.0
-gunicorn==0.14.5
