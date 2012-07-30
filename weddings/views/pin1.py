@@ -2,7 +2,6 @@ from django.views.generic import TemplateView
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.contrib import messages
-from django.core.exceptions import MultipleObjectsReturned
 from weddings.models import Invitation, CodeGuess
 from datetime import datetime, timedelta
 

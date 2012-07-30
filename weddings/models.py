@@ -71,6 +71,9 @@ class WeddingGuest(models.Model):
     full_name = property(_get_fullname)
 
     def __unicode__(self):
+        if self.email == "":
+            return "%s %s" % (self.first_name, self.last_name)
+
         return "%s %s <%s>" % (self.first_name, self.last_name, self.email)
 
 
