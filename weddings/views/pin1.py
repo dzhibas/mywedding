@@ -2,6 +2,7 @@ from django.views.generic import TemplateView
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.contrib import messages
+from django.core.exceptions import MultipleObjectsReturned
 from weddings.models import Invitation, CodeGuess
 from datetime import datetime, timedelta
 
@@ -51,6 +52,9 @@ class Pin1View(TemplateView):
         except Invitation.DoesNotExist:
             messages.error(request, 'No such pin')
             return HttpResponseRedirect(reverse('pin1'))
+        except Invitation.MultipleObjectsReturned:
+            messages.error(request, 'No such pin')
+            return HttpResponseRedirect(reverse('pin1'))
 
         return HttpResponseRedirect(reverse('pin2'))
 
@@ -65,6 +69,8 @@ class Pin1View(TemplateView):
             Invitation.objects.get(invite_code=pin)
             return True
         except Invitation.DoesNotExist:
+            return False
+        except Invitation.MultipleObjectsReturned:
             return False
 
     def ip_addr(self, request):
