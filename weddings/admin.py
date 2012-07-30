@@ -35,12 +35,22 @@ admin.site.register(CodeGuess, CodeGuessAdmin)
 
 
 class GuestsAdmin(admin.ModelAdmin):
-    list_display = ('full_name', 'email', 'rsvp_answer', 'rsvp_change_datetime')
+    list_display = ('full_name', 'email', 'invitation_letter', 'rsvp_answer_display', 'rsvp_change_datetime')
     list_filter = ('rsvp_answer', )
     search_fields = ['email', 'first_name', 'last_name']
     fields = (('first_name', 'last_name'), 'email', 'invitation',
         ('invited', 'invited_by'),
         ('rsvp_answer', 'rsvp_change_datetime'))
 
+    def invitation_letter(self, obj):
+        if obj.invitation == None:
+            return "<div style='background-color:#FB7474;color:#fff;width:100%%;height:100%%'>Not assigned</div>"
+        return obj.invitation
+    invitation_letter.allow_tags = True
+
+    def rsvp_answer_display(self, obj):
+        COLORS = ['#FFC63E', '#008F06', '#CC0000', '#B45353']
+        return "<div style='background-color:%s;color:#fff;width:100%%;height:100%%'>%s</div>" % (COLORS[obj.rsvp_answer], obj.get_rsvp_answer_display())
+    rsvp_answer_display.allow_tags = True
 
 admin.site.register(WeddingGuest, GuestsAdmin)
