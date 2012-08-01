@@ -7,20 +7,22 @@
     </div>
 
     <div class="pin1-title">
-        {% if messages %}
-            {% for message in  messages%}
-                <div class="alert alert-error pin1-alert">
-                    {{message}}
-                </div>
-            {% endfor %}
-        {% endif %}
         <h1>Jei užėjote čia, reiškia esate pakviesti</h1>
-        <h2>bet mes įtarūs, tad įveskite prašom kodą kurį gavote kartu su el. pakvietimu:<h2>
+        <p>bet mes įtarūs, tad įveskite prašom kodą kurį gavote kartu su el. pakvietimu<p>
     </div>
 
     <div class="pin1-input">
         <form action="" method="post">
             {% csrf_token %}
+            
+            {% if messages %}
+            {% for message in  messages%}
+                <div class="pin1-alert">
+                    {{message}}
+                </div>
+            {% endfor %}
+            {% endif %}
+            
             <div class="input-append">
                 <input type="text" placeholder="CODE" name="pin" value="{%if pin%}{{pin}}{%endif%}" class="input-small appendedInputButtons">
                 <input type="submit" value="Toliau" class="btn btn-large btn-primary">

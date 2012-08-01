@@ -7,19 +7,21 @@
     </div>
 
     <div class="pin1-title">
-        {% if messages %}
-            {% for message in  messages%}
-                <div class="alert alert-error pin1-alert">
-                    {{message}}
-                </div>
-            {% endfor %}
-        {% endif %}
         <h1>Hey! Jūs tikrai pakviesti. Džiaugiuosi kad užėjot</h1>
-        <h2>dabar norėtume sužinoti kuris būtent esate</h2>
-        <h2>pasirinkite žemiau esančiame langelyje savo vardą/pavardę ar slapyvardį<h2>
+        <p>dabar norėtume sužinoti kuris būtent esate</p>
+        <p>pasirinkite žemiau esančiame langelyje savo vardą/pavardę ar slapyvardį</p>
         <div class="pin2-input">
             <form action="" method="post">
                 {% csrf_token %}
+                {% if messages %}
+                {% for message in  messages%}
+                    {% if message.tags == 'error' %}
+                        <div class="pin1-alert">
+                            {{message}}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+                {% endif %}
                 <div class="input-append controls">
                     <select name="guest" id="" class="input-medium appendedInputButtons">
                         <option value="">nurodyk kas tu ?</option>

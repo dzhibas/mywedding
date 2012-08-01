@@ -4,14 +4,26 @@
 {% block content %}
 
 <div class="invitation-container">
+    <div class="datetime">
+        2012 september 22 14:30 - Palanga Central Church
+    </div>
     <h1>{{invitation.invitation_text.title}}</h1>
 
     <div class="invitation-body">
         {{invitation.invitation_text.body|markdown}}
     </div>
+</div>
 
-    <h2>Please confirm you will be there</h2>
+<div class="invitation-menu">
+    <ul class="clearfix">
+        <li>Love story</li>
+        <li>Map & agenda</li>
+        <li>Friend list</li>
+        <li class="last">Questions/Answers</li>
+    </ul>
+</div>
 
+<div class="invitation-questions">
     <div class="guest_list">
         {% for guest in guests %}
             {{guest.full_name}} - {{guest.get_rsvp_answer_display}}
@@ -31,15 +43,8 @@
             </div>
         {% endfor %}
     </div>
-
-    <div class="questions">
-        <h2>Other questions</h2>
-
-        1. are you vegetarian ?<br/>
-        2. who are you?<br/>
-        3. need sleep ?
-    </div>
 </div>
+
 {% endblock content %}
 
 {% block footer %}

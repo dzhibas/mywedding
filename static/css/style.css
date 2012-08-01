@@ -1,4 +1,5 @@
-@import url(http://fonts.googleapis.com/css?family=Ubuntu+Condensed|Istok+Web:400,700&subset=latin,latin-ext,cyrillic-ext,cyrillic);
+/*@import url(http://fonts.googleapis.com/css?family=Ubuntu+Condensed|Istok+Web:400,700&subset=latin,latin-ext,cyrillic-ext,cyrillic);*/
+/*@import url(http://fonts.googleapis.com/css?family=Lora:700|Istok+Web&subset=cyrillic-ext,latin-ext,cyrillic,latin);*/
 
 body {
     background-image: url(/static/img/bg.jpg);
@@ -11,7 +12,7 @@ body {
     width: 700px;
     min-height: 300px;
     margin: 70px auto 0 auto;
-    padding: 10px;
+    padding: 10px 10px 10px 20px;
     border-radius: 5px;
     color: #fff;
 }
@@ -123,32 +124,32 @@ body {
 
 .pin1-title {
     float: right;
-    width: 360px;
-    display: inline-block;
+    width: 372px;
+    display: block;
 }
 
 .pin1-input {
     float: right;
-    width: 360px;
+    width: 372px;
 }
 
 .pin1-alert {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size:12px;
-    padding: 5px;
-    background-color: #fff;
+    font-family: "Istok Web", Helvetica, Arial, sans-serif;
+    font-size:15px;
+    padding: 0;
+    color: #d3d1d1;
 }
 
 .pin1-title h1, .invitation-container h1 {
-    font-family: 'Ubuntu Condensed', Arial, serif;
+    font-family: 'Lora', Arial, serif;
     font-weight: 700;
     size: 25px;
     color: #fff;
     line-height: 90%;
 }
 
-.pin1-title h2 {
-    font-family: 'Ubuntu Condensed', Arial, serif;
+.pin1-title p {
+    font-family: 'Istok Web', Arial, serif;
     font-weight: 400;
     font-size: 19px;
     color: #fff;
@@ -175,6 +176,14 @@ body {
     margin: 0;
 }
 
+.invitation-body {
+    font-family: 'Istok Web', Arial, serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #fff;
+    line-height: 120%;
+}
+
 #photoX {
     width: 200px;
     height: 239px;
@@ -193,33 +202,70 @@ body {
     left: 1140px;
 }
 
-h1 {
-    font-family: 'Parisienne', cursive;
+.invitation-container h1 {
+    font-family: 'Lora', cursive;
+    font-weight: 700;
+    color: #fff;
+    font-size: 30px;
+    margin-top: 6px;
+}
+.datetime {
+    font-family: 'Istok Web', Arial, serif;
     font-weight: 400;
-    color: white;
+    font-size: 14px;
+    color: #a89d9d;
+    margin-top: 10px;
 }
-
-#form {
-    width: 600px;
-    height: 300px;
-    padding-left: 30px;
-    position: absolute;
-    top: 200px;
-    left: 450px;
-    background-color: #000;
-    background-color: rgba(0,0,0,.5);
-/*  opacity: 0.5;
-    -moz-opacity: 0.5;
-    filter:alpha(opacity=0.5);*/
-
-    font-family: 'Parisienne', cursive;
+.invitation-menu {
+    font-family: 'Istok Web', Arial, serif;
     font-weight: 400;
-    font-size: 20px;
-    color: white;
+    font-size: 14px;
+    width: 700px;
+    margin: 10px auto 0 auto;
+    padding: 10px 10px 10px 20px;
+    border-radius: 5px;
+    color: #fff;
+}
+.invitation-menu ul {
+    margin:0;
+    padding:0;
+}
+.invitation-menu li {
+    float: left;
+    list-style: none;
+    padding: 0 10px 0 10px;
+    margin: 0;
+    display: inline-block;
+    border-right: 1px solid #fff;
+}
+.invitation-menu li.last {
+    border-right: none;
 }
 
-.container {
-/*  opacity: 1;
-    -moz-opacity: 1;
-    filter:alpha(opacity=1);*/
+.rgba .invitation-menu {
+    background-color: rgba(0,0,0,.34);
 }
+
+.no-rgba .invitation-menu {
+    background-image: url(/static/img/bg.jpg);
+}
+.invitation-questions {
+    font-family: 'Istok Web', Arial, serif;
+    font-weight: 400;
+    font-size: 14px;
+    width: 700px;
+    margin: 10px auto 0 auto;
+    padding: 10px 10px 10px 20px;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.rgba .invitation-questions {
+    background-color: rgba(0,0,0,.34);
+}
+
+.no-rgba .invitation-questions {
+    background-image: url(/static/img/bg.jpg);
+}
+
+
