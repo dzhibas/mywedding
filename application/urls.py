@@ -12,5 +12,5 @@ urlpatterns = patterns('',
     url(r'^invitation/$', InvitationView.as_view(), name='invitation'),
     url(r'^answer/(?P<person_id>\d+)/(?P<answer_id>\d+)/$', RsvpAnswerView.as_view(), name='answer'),
     url(r'^admin/', include(admin.site.urls)),
-    url('^markdown/', include('django_markdown.urls')),
+    url(r'^markdown/', include('django_markdown.urls')),
 )
