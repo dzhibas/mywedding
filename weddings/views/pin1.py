@@ -1,3 +1,5 @@
+# coding=utf-8
+
 from django.views.generic import TemplateView
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
@@ -15,7 +17,7 @@ class Pin1View(TemplateView):
     def get(self, request, *args, **kwargs):
         if 'pin_provided' in request.session and 'logged_pin' in request.session:
             if self.check_pin(request.session['logged_pin']):
-                messages.success(request, _('Already verified'))
+                messages.success(request, _(u"Kodas patikrintas"))
                 return HttpResponseRedirect(reverse('pin2'))
 
         if 'post_pin' in request.session:
@@ -26,7 +28,7 @@ class Pin1View(TemplateView):
 
     def post(self, request):
         if 'pin' not in request.POST or request.POST['pin'].strip() == '':
-            messages.error(request, _('No pin provided'))
+            messages.error(request, _(u'Nurodykite kodą'))
             # log empty try of guess
             CodeGuess.objects.create(ip=self.ip_addr(request), guess_code='')
             return HttpResponseRedirect(reverse('pin1'))
@@ -38,7 +40,7 @@ class Pin1View(TemplateView):
                                             ip=self.ip_addr(request))
         if len(guesses) > 4:
             CodeGuess.objects.create(ip=self.ip_addr(request), guess_code=request.POST['pin'])
-            messages.error(request, _('Too many tries. You locked for next 3 hours'))
+            messages.error(request, _(u'Prisižaidėt. Dabar tris valandas spėlioti nebegalit'))
             return HttpResponseRedirect(reverse('pin1'))
 
         # log guess trying
@@ -48,12 +50,12 @@ class Pin1View(TemplateView):
             obj = Invitation.objects.get(invite_code__iexact=request.POST['pin'])
             request.session['logged_pin'] = obj.invite_code
             request.session['pin_provided'] = True
-            messages.success(request, _('Pin verified'))
+            messages.success(request, _('Kodas patvirtintas'))
         except Invitation.DoesNotExist:
-            messages.error(request, _('No such pin'))
+            messages.error(request, _(u'Tokio kodo nėra'))
             return HttpResponseRedirect(reverse('pin1'))
         except Invitation.MultipleObjectsReturned:
-            messages.error(request, _('No such pin'))
+            messages.error(request, _(u'Tokio kodo nėra'))
             return HttpResponseRedirect(reverse('pin1'))
 
         return HttpResponseRedirect(reverse('pin2'))

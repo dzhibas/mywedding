@@ -3,9 +3,10 @@
 
 <div class="invitation-menu">
     <ul class="clearfix">
-        <li>{% trans "Love story" %}</li>
-        <li><a href="/{{LANGUAGE_CODE}}/map/">{% trans "Map & agenda" %}</a></li>
-        <li><a href="{% url friends %}">{% trans "Friend circle" %}</a></li>
-        <li class="last">{% trans "Questions/Answers" %}</li>
+        <li><a href="{% url invitation %}">{% trans "Kvietimas" %}</a></li>
+        <li><a href="{% url story %}">{% trans "Kaip taip atsitiko?" %}</a></li>
+        <li><a href="/{{LANGUAGE_CODE}}/map/">{% trans "Žemėlapis ir programa" %}</a></li>
+        <li><a href="{% url friends %}">{% trans "Draugų ratas" %}</a></li>
+        <li class="last"><a href="mailto:nikolajus@gmail.com?subject=rsvp">{% trans "Klausk? - atsakysim!" %}</a></li>
     </ul>
 </div>

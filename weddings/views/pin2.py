@@ -1,3 +1,5 @@
+# coding=utf-8
+
 from django.views.generic import TemplateView
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
@@ -30,7 +32,7 @@ class Pin2View(TemplateView):
             return HttpResponseRedirect(reverse('pin1'))
 
         if 'guest' not in request.POST or request.POST['guest'] == '':
-            messages.error(request, _('Please select one person'))
+            messages.error(request, _(u"Pasirinkite svečią iš pateikto sąrašo"))
             return HttpResponseRedirect(reverse('pin2'))
 
         guests = invitation.weddingguest_set.all()
@@ -39,7 +41,7 @@ class Pin2View(TemplateView):
         guest_id = int(request.POST['guest'])
 
         if guest_id not in allowed_guest_ids:
-            messages.error(request, _('No chance you can select this person'))
+            messages.error(request, _(u"Oi oi oi, tu negali pasirinkti šio svečio. Ar tikrai tai tu ?"))
             return HttpResponseRedirect(reverse('pin2'))
 
         request.session['logged_in_quest'] = guest_id

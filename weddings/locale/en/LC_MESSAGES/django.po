@@ -3,105 +3,131 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-06 14:20+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2012-08-06 17:11+0200\n"
+"PO-Revision-Date: 2012-08-06 17:18+0100\n"
+"Last-Translator: Nikolajus <nikolajus@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: models.py:55
+msgid "Not answered"
+msgstr ""
+
+#: models.py:56
+msgid "Will attend"
+msgstr ""
+
+#: models.py:57
+msgid "Will not attend"
+msgstr ""
+
+#: models.py:58
+msgid "Maybe"
+msgstr ""
+
+#: templates/friends.html:7
+#: templates/menu.html:9
+msgid "Draugų ratas"
+msgstr "Friend circle"
+
+#: templates/friends.html:10
+msgid "ką atsakė jūsų draugai"
+msgstr "what answered your friends"
+
 #: templates/invitation.html:9
-msgid "2012 september 22 14:30 - Palanga Central Church"
-msgstr ""
+msgid "2012 rugsėjo 22d. 14:30 - Palangos bažnyčia"
+msgstr "2012 september 22d. 14:30 (Lithuanian time) - Palanga church"
 
-#: templates/invitation.html:20
-msgid "Love story"
-msgstr ""
-
-#: templates/invitation.html:21
-msgid "Map & agenda"
-msgstr ""
-
-#: templates/invitation.html:22
-msgid "Friend circle"
-msgstr ""
-
-#: templates/invitation.html:23
-msgid "Questions/Answers"
-msgstr ""
-
-#: templates/invitation.html:34
+#: templates/invitation.html:27
 msgid "Taip dalyvausiu"
-msgstr ""
+msgstr "Yes i will attend"
 
-#: templates/invitation.html:38
+#: templates/invitation.html:31
 msgid "Galbūt"
-msgstr ""
+msgstr "Maybe"
 
-#: templates/invitation.html:42
+#: templates/invitation.html:35
 msgid "Nedalyvausiu"
-msgstr ""
+msgstr "I cannot attend"
+
+#: templates/menu.html:6
+msgid "Kvietimas"
+msgstr "Invitation"
+
+#: templates/menu.html:7
+msgid "Kaip taip atsitiko?"
+msgstr "How it happened?"
+
+#: templates/menu.html:8
+msgid "Žemėlapis ir programa"
+msgstr "Map & agenda"
+
+#: templates/menu.html:10
+msgid "Klausk? - atsakysim!"
+msgstr "Questions / Answers"
 
 #: templates/pin1.html:11
 msgid "Jei užėjote čia, reiškia esate pakviesti"
-msgstr ""
+msgstr "If you are here, means you invited"
 
 #: templates/pin1.html:12
-msgid ""
-"bet mes įtarūs, tad įveskite prašom kodą kurį gavote kartu su el. pakvietimu"
-msgstr ""
+msgid "bet mes įtarūs, tad įveskite prašom kodą kurį gavote kartu su el. pakvietimu"
+msgstr "but we are suspicious, please enter invitation code provided in your email"
 
-#: templates/pin1.html:29 templates/pin2.html:33
+#: templates/pin1.html:29
+#: templates/pin2.html:33
 msgid "Toliau"
-msgstr ""
+msgstr "Next"
 
 #: templates/pin2.html:11
 msgid "Hey! Jūs tikrai pakviesti. Džiaugiuosi kad užėjot"
-msgstr ""
+msgstr "Hooray, you are really invited, we are so happy you here"
 
 #: templates/pin2.html:12
 msgid "dabar norėtume sužinoti kuris būtent esate"
-msgstr ""
+msgstr "please indicate who are you?"
 
 #: templates/pin2.html:13
 msgid "pasirinkite žemiau esančiame langelyje savo vardą/pavardę ar slapyvardį"
-msgstr ""
+msgstr "choose your name in selectbox bellow"
 
 #: templates/pin2.html:28
 msgid "nurodyk kas tu ?"
-msgstr ""
+msgstr "who are you ?"
 
 #: views/pin1.py:18
-msgid "Already verified"
-msgstr ""
+msgid "Kodas patikrintas"
+msgstr "Code verified"
 
 #: views/pin1.py:29
-msgid "No pin provided"
-msgstr ""
+msgid "Nurodykite kodą"
+msgstr "Enter code"
 
 #: views/pin1.py:41
-msgid "Too many tries. You locked for next 3 hours"
-msgstr ""
+msgid "Prisižaidėt. Dabar tris valandas spėlioti nebegalit"
+msgstr "That's it. You locked for next 3 hours"
 
 #: views/pin1.py:51
-msgid "Pin verified"
-msgstr ""
+msgid "Kodas patvirtintas"
+msgstr "Code verified"
 
-#: views/pin1.py:53 views/pin1.py:56
-msgid "No such pin"
-msgstr ""
+#: views/pin1.py:53
+#: views/pin1.py:56
+msgid "Tokio kodo nėra"
+msgstr "No such code"
 
 #: views/pin2.py:33
-msgid "Please select one person"
-msgstr ""
+msgid "Pasirinkite svečią iš pateikto sąrašo"
+msgstr "Choose guest from list below"
 
 #: views/pin2.py:42
-msgid "No chance you can select this person"
-msgstr ""
+msgid "Oi oi oi, tu negali pasirinkti šio svečio. Ar tikrai tai tu ?"
+msgstr "You kiddin ? You cannot choose this guest, something went wrong, call police"
+

@@ -19,4 +19,5 @@ urlpatterns += i18n_patterns('',
     url(r'^2/$', Pin2View.as_view(), name='pin2'),
     url(r'^invitation/$', InvitationView.as_view(), name='invitation'),
     url(r'^friends/$', FriendsView.as_view(), name='friends'),
+    url(r'^story/$', StoryView.as_view(), name='story'),
 )

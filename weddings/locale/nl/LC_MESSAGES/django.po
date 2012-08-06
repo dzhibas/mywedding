@@ -3,38 +3,38 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-06 17:11+0200\n"
-"PO-Revision-Date: 2012-08-06 17:13+0100\n"
-"Last-Translator: Nikolajus <nikolajus@gmail.com>\n"
+"POT-Creation-Date: 2012-08-06 17:12+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #: models.py:55
 msgid "Not answered"
-msgstr "Neatsakyta"
+msgstr ""
 
 #: models.py:56
 msgid "Will attend"
-msgstr "Dalyvaus"
+msgstr ""
 
 #: models.py:57
 msgid "Will not attend"
-msgstr "Nedalyvaus"
+msgstr ""
 
 #: models.py:58
 msgid "Maybe"
-msgstr "Galbūt dalyvaus"
+msgstr ""
 
-#: templates/friends.html:7
-#: templates/menu.html:9
+#: templates/friends.html:7 templates/menu.html:9
 msgid "Draugų ratas"
 msgstr ""
 
@@ -79,11 +79,11 @@ msgid "Jei užėjote čia, reiškia esate pakviesti"
 msgstr ""
 
 #: templates/pin1.html:12
-msgid "bet mes įtarūs, tad įveskite prašom kodą kurį gavote kartu su el. pakvietimu"
+msgid ""
+"bet mes įtarūs, tad įveskite prašom kodą kurį gavote kartu su el. pakvietimu"
 msgstr ""
 
-#: templates/pin1.html:29
-#: templates/pin2.html:33
+#: templates/pin1.html:29 templates/pin2.html:33
 msgid "Toliau"
 msgstr ""
 
@@ -119,8 +119,7 @@ msgstr ""
 msgid "Kodas patvirtintas"
 msgstr ""
 
-#: views/pin1.py:53
-#: views/pin1.py:56
+#: views/pin1.py:53 views/pin1.py:56
 msgid "Tokio kodo nėra"
 msgstr ""
 
@@ -131,4 +130,3 @@ msgstr ""
 #: views/pin2.py:42
 msgid "Oi oi oi, tu negali pasirinkti šio svečio. Ar tikrai tai tu ?"
 msgstr ""
-
