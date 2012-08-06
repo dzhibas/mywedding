@@ -44,7 +44,7 @@ class Pin1View(TemplateView):
         CodeGuess.objects.create(ip=self.ip_addr(request), guess_code=request.POST['pin'])
 
         try:
-            obj = Invitation.objects.get(invite_code=request.POST['pin'])
+            obj = Invitation.objects.get(invite_code__iexact=request.POST['pin'])
             request.session['logged_pin'] = obj.invite_code
             request.session['pin_provided'] = True
             messages.success(request, 'Pin verified')
@@ -65,7 +65,7 @@ class Pin1View(TemplateView):
 
     def check_pin(self, pin):
         try:
-            Invitation.objects.get(invite_code=pin)
+            Invitation.objects.get(invite_code__iexact=pin)
             return True
         except Invitation.DoesNotExist:
             return False

@@ -47,7 +47,7 @@ class Pin2View(TemplateView):
 
     def check_pin(self, pin):
         try:
-            return Invitation.objects.get(invite_code=pin)
+            return Invitation.objects.get(invite_code__iexact=pin)
         except Invitation.DoesNotExist:
             return False
 
