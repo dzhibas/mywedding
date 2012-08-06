@@ -6,8 +6,8 @@ from forms import InvitationForm
 
 class InvitationAdmin(admin.ModelAdmin):
     filter_horizontal = ('friends', )
-    fields = ('invite_code', 'invitation_text', 'questions', 'invitation_guests', 'friends',)
-    list_display = ('invite_code', 'who_invited', 'invitation_text__name', 'invitation_text__title')
+    fields = ('invite_code', 'invitation_text', 'invitation_language', 'questions', 'invitation_guests', 'friends',)
+    list_display = ('invite_code', 'who_invited', 'invitation_text__name', 'invitation_language', 'invitation_text__title', 'questions')
     form = InvitationForm
 
     def who_invited(self, obj):

@@ -1,5 +1,6 @@
 from django.db import models
 from datetime import datetime
+from django.conf.global_settings import LANGUAGES
 # from django.db.models import signals
 # from weddings.signals import invitation_created
 
@@ -21,6 +22,8 @@ class Invitation(models.Model):
 
     friends = models.ManyToManyField("WeddingGuest", related_name="+", blank=True,
                 verbose_name=u'Related friends for invitation')
+
+    invitation_language = models.CharField(max_length=7, choices=LANGUAGES, default='en')
 
     def __unicode__(self):
         return self.invite_code
