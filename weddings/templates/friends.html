@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block content %}
+    <div class="invitation-container">
+        <h1>{% trans "Draugų ratas" %}</h1>
+
+        <div class="invitation-body">
+            <p>{% trans "ką atsakė jūsų draugai" %}</p>
+
+            <ul>
+            {% for friend in friends %}
+                <li>{{friend.full_name}} - {{friend.get_rsvp_answer_display}}</li>
+            {% endfor %}
+            </ul>
+        </div>
+</div>
+
+{% include "menu.html" %}
+
+{% endblock content %}

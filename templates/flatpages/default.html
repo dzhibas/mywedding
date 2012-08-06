@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+    <div class="invitation-container">
+        <h1>{{ flatpage.title }}</h1>
+
+        <div class="invitation-body">
+            {{flatpage.content}}
+        </div>
+    </div>
+
+    {% include "menu.html" %}
+{% endblock content %}

@@ -1,0 +1,11 @@
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+<div class="invitation-menu">
+    <ul class="clearfix">
+        <li>{% trans "Love story" %}</li>
+        <li><a href="/{{LANGUAGE_CODE}}/map/">{% trans "Map & agenda" %}</a></li>
+        <li><a href="{% url friends %}">{% trans "Friend circle" %}</a></li>
+        <li class="last">{% trans "Questions/Answers" %}</li>
+    </ul>
+</div>
