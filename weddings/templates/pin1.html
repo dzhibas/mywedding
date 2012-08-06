@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block content %}
 <div id="pin1-container">
@@ -7,8 +8,8 @@
     </div>
 
     <div class="pin1-title">
-        <h1>Jei užėjote čia, reiškia esate pakviesti</h1>
-        <p>bet mes įtarūs, tad įveskite prašom kodą kurį gavote kartu su el. pakvietimu<p>
+        <h1>{% trans "Jei užėjote čia, reiškia esate pakviesti" %}</h1>
+        <p>{% trans "bet mes įtarūs, tad įveskite prašom kodą kurį gavote kartu su el. pakvietimu" %}<p>
     </div>
 
     <div class="pin1-input">
@@ -25,7 +26,7 @@
             
             <div class="input-append">
                 <input type="text" placeholder="CODE" name="pin" value="{%if pin%}{{pin}}{%endif%}" class="input-small appendedInputButtons">
-                <input type="submit" value="Toliau" class="btn btn-large btn-primary">
+                <input type="submit" value="{% trans "Toliau" %}" class="btn btn-large btn-primary">
             </div>
             <div id="pin1-arrow">
                 <img src="/static/img/arrow.png" width="70px" height="59" border="0" alt="">

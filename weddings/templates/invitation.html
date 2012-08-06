@@ -1,11 +1,12 @@
 {% extends "base.html" %}
 {% load markup %}
+{% load i18n %}
 
 {% block content %}
 
 <div class="invitation-container">
     <div class="datetime">
-        2012 september 22 14:30 - Palanga Central Church
+        {% trans "2012 september 22 14:30 - Palanga Central Church" %}
     </div>
     <h1>{{invitation.invitation_text.title}}</h1>
 
@@ -16,10 +17,10 @@
 
 <div class="invitation-menu">
     <ul class="clearfix">
-        <li>Love story</li>
-        <li>Map & agenda</li>
-        <li>Friend list</li>
-        <li class="last">Questions/Answers</li>
+        <li>{% trans "Love story" %}</li>
+        <li>{% trans "Map & agenda" %}</li>
+        <li>{% trans "Friend circle" %}</li>
+        <li class="last">{% trans "Questions/Answers" %}</li>
     </ul>
 </div>
 
@@ -30,15 +31,15 @@
             <div class="btn-group" data-toggle="buttons-radio">
               <button onclick="window.location.href='/answer/{{guest.id}}/1/';" class="btn btn-primary btn-small {% if guest.rsvp_answer == 1 %}active{%endif%}">
                 <i class="icon-thumbs-up icon-white"></i>
-                Yes i will
+                {% trans "Taip dalyvausiu" %}
               </button>
               <button onclick="window.location.href='/answer/{{guest.id}}/3/';" class="btn btn-primary btn-small {% if guest.rsvp_answer == 3 %}active{%endif%}">
                 <i class="icon-question-sign icon-white"></i>
-                Maybe
+                {% trans "Galbūt" %}
               </button>
               <button onclick="window.location.href='/answer/{{guest.id}}/2/';" class="btn btn-primary btn-small {% if guest.rsvp_answer == 2 %}active{%endif%}">
                 <i class="icon-thumbs-down icon-white"></i>
-                No
+                {% trans "Nedalyvausiu" %}
               </button>
             </div>
         {% endfor %}

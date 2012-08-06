@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block content %}
 <div id="pin2-container" class="clearfix">
@@ -7,9 +8,9 @@
     </div>
 
     <div class="pin1-title">
-        <h1>Hey! Jūs tikrai pakviesti. Džiaugiuosi kad užėjot</h1>
-        <p>dabar norėtume sužinoti kuris būtent esate</p>
-        <p>pasirinkite žemiau esančiame langelyje savo vardą/pavardę ar slapyvardį</p>
+        <h1>{% trans "Hey! Jūs tikrai pakviesti. Džiaugiuosi kad užėjot" %}</h1>
+        <p>{% trans "dabar norėtume sužinoti kuris būtent esate" %}</p>
+        <p>{% trans "pasirinkite žemiau esančiame langelyje savo vardą/pavardę ar slapyvardį" %}</p>
         <div class="pin2-input">
             <form action="" method="post">
                 {% csrf_token %}
@@ -24,12 +25,12 @@
                 {% endif %}
                 <div class="input-append controls">
                     <select name="guest" id="" class="input-medium appendedInputButtons">
-                        <option value="">nurodyk kas tu ?</option>
+                        <option value="">{% trans "nurodyk kas tu ?" %}</option>
                         {% for guest in guests  %}
                             <option value="{{guest.id}}">{{guest.full_name}}</option>
                         {% endfor %}
                     </select>
-                    <input type="submit" value="toliau" class="btn btn-medium btn-primary">
+                    <input type="submit" value="{% trans "Toliau" %}" class="btn btn-medium btn-primary">
                 </div>
             </form>
         </div>
