@@ -52,10 +52,10 @@ class WeddingGuest(models.Model):
         verbose_name_plural = u'Wedding guests'
 
     RSVP_ANSWERS = (
-            (0, _("Not answered")),
-            (1, _("Will attend")),
-            (2, _("Will not attend")),
-            (3, _("Maybe"))
+            (0, "Not answered"),
+            (1, "Will attend"),
+            (2, "Will not attend"),
+            (3, "Maybe")
         )
 
     first_name = models.CharField(max_length=150)
