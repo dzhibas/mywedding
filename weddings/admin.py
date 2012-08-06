@@ -1,12 +1,12 @@
 from django.contrib import admin
 from django_markdown.admin import MarkdownModelAdmin
-from models import Invitation, InvitationTextTemplate, WeddingGuest, CodeGuess
+from weddings.models import *
 from forms import InvitationForm
 
 
 class InvitationAdmin(admin.ModelAdmin):
     filter_horizontal = ('friends', )
-    fields = ('invite_code', 'invitation_text', 'invitation_guests', 'friends',)
+    fields = ('invite_code', 'invitation_text', 'questions', 'invitation_guests', 'friends',)
     list_display = ('invite_code', 'who_invited', 'invitation_text__name', 'invitation_text__title')
     form = InvitationForm
 
@@ -54,3 +54,24 @@ class GuestsAdmin(admin.ModelAdmin):
     rsvp_answer_display.allow_tags = True
 
 admin.site.register(WeddingGuest, GuestsAdmin)
+
+
+class ChoiceInline(admin.TabularInline):
+    model = Choice
+    extra = 3
+
+
+class QuestionInline(admin.TabularInline):
+    model = Question
+    extra = 4
+
+
+class PollAlladmin(admin.ModelAdmin):
+    inlines = [QuestionInline]
+
+
+class QuestionAdmin(admin.ModelAdmin):
+    inlines = [ChoiceInline]
+
+admin.site.register(Question, QuestionAdmin)
+admin.site.register(Poll, PollAlladmin)

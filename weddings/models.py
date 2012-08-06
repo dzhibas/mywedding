@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import datetime
 # from django.db.models import signals
 # from weddings.signals import invitation_created
 
@@ -15,6 +16,8 @@ class Invitation(models.Model):
 
     invitation_text = models.ForeignKey("InvitationTextTemplate",
                 verbose_name=u'Invitation text template')
+
+    questions = models.ForeignKey("Poll", verbose_name=u'Questions for invitation', blank=True, null=True)
 
     friends = models.ManyToManyField("WeddingGuest", related_name="+", blank=True,
                 verbose_name=u'Related friends for invitation')
@@ -88,3 +91,92 @@ class CodeGuess(models.Model):
 
     def __unicode__(self):
         return "%s - %s - %s" % (self.when_tried, self.ip, self.guess_code)
+
+
+class QuestionManager(models.Manager):
+
+    def create_poll(self, poll, question, choices):
+        """ create a poll with available chices
+            choices must be an iterable object
+        """
+        q = Question(poll=poll, question=question)
+        q.save()
+        for c in choices:
+            Choice(text=c, question=q).save()
+        return q
+
+
+class Poll(models.Model):
+    """ poll """
+
+    title = models.TextField('Title')
+    description = models.TextField('Poll description', blank=True)
+
+    def __unicode__(self):
+        return self.title
+
+    def add_question(self, question, answers):
+        Question.objects.create_poll(self, question, answers)
+
+
+class Question(models.Model):
+    """ Poll question """
+
+    question = models.TextField('Question')
+    poll = models.ForeignKey(Poll, related_name="questions")
+
+    objects = QuestionManager()
+
+    def user_choice(self, user):
+        """ return user choice for this poll """
+        try:
+            return UserChoice.objects.get(user=user, choice__question=self).choice
+        except UserChoice.DoesNotExist:
+            pass
+        return None
+
+    def votes(self):
+        """ return the vote number """
+        return UserChoice.objects.filter(choice__question=self).count()
+
+    def __unicode__(self):
+        return self.question
+
+
+class Choice(models.Model):
+    """ poll choice """
+
+    question = models.ForeignKey(Question, related_name="choices")
+    text = models.CharField('Answer', max_length=255)
+
+    def __unicode__(self):
+        return self.text
+
+    def vote(self, user):
+        """ user vote for this choice """
+        if not self.question.user_choice(user):
+            UserChoice(user=user, choice=self).save()
+            return True
+        return False
+
+    def votes(self):
+        return self.users.all().count()
+
+    def percentage(self):
+        total = self.question.votes()
+        if total == 0:
+            return 0
+        return round((self.votes() * 100.0) / total, 1)
+
+
+class UserChoice(models.Model):
+    """
+    it represents the vote for each user with timestamp
+    """
+    choice = models.ForeignKey(Choice, related_name="users")
+    weddingguest = models.ForeignKey(WeddingGuest, related_name="poll_answers")
+    invitation = models.ForeignKey(Invitation, related_name="poll_answers")
+    timestamp = models.DateTimeField(default=datetime.now)
+
+    class Meta:
+        unique_together = ("choice", "invitation")
