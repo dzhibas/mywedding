@@ -11,7 +11,7 @@ from django.utils.translation import ugettext as _
 class Pin2View(TemplateView):
     template_name = "pin2.html"
     guest_list = None
-    logged_in_guest = None
+    logged_in_guest = 0
 
     def get(self, request, *args, **kwargs):
         if 'logged_in_guest' in request.COOKIES:

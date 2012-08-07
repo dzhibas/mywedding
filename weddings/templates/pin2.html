@@ -26,6 +26,9 @@
 
                 {# Patikrinam ar nera jis tik vienas svecias cia #}
                 {% if guest_count == 1 %}
+                    <div class="controls">
+                        <center><a href="{% url invitation %}" class="btn btn-large btn-primary">{% trans "Į kvietimą" %}</a></center>
+                    </div>
                     
                     <p>{% trans "<b>Hey</b>!<br/>Panašu kad Jūs vienas be poros. Negerai... Jei ketinate ateiti su kažkuo prašome užpildyti Jūsų poros vardą pavardę. Jei ketinate ateiti vieni tiesiog spauskite '<b>Toliau</b>'" %}</p>
 

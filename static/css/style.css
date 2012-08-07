@@ -291,3 +291,10 @@ select {
     padding: 4px;
     background-color: #fff;
 }
+
+
+.controls a {
+    text-decoration: none;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 13px;
+}
