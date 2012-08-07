@@ -1,5 +1,6 @@
 # coding=utf-8
 
+from django.conf import settings
 from django.views.generic import TemplateView
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
@@ -7,6 +8,7 @@ from django.contrib import messages
 from weddings.models import Invitation, CodeGuess
 from datetime import datetime, timedelta
 from django.utils.translation import ugettext as _
+from django.utils.translation import check_for_language, activate
 
 
 class Pin1View(TemplateView):
@@ -46,8 +48,22 @@ class Pin1View(TemplateView):
         # log guess trying
         CodeGuess.objects.create(ip=self.ip_addr(request), guess_code=request.POST['pin'])
 
+        success_response = HttpResponseRedirect(reverse('pin2'))
+
         try:
             obj = Invitation.objects.get(invite_code__iexact=request.POST['pin'])
+
+            # setting application language to invitation language
+            invitation_language = obj.invitation_language
+
+            if invitation_language and check_for_language(invitation_language):
+                activate(invitation_language)
+                success_response = HttpResponseRedirect(reverse('pin2'))
+                if hasattr(request, 'session'):
+                    request.session['django_language'] = invitation_language
+                else:
+                    success_response.set_cookie(settings.LANGUAGE_COOKIE_NAME, invitation_language)
+
             request.session['logged_pin'] = obj.invite_code
             request.session['pin_provided'] = True
             messages.success(request, _('Kodas patvirtintas'))
@@ -58,7 +74,7 @@ class Pin1View(TemplateView):
             messages.error(request, _(u'Tokio kodo nėra'))
             return HttpResponseRedirect(reverse('pin1'))
 
-        return HttpResponseRedirect(reverse('pin2'))
+        return success_response
 
     def get_context_data(self, **kwargs):
         context = super(Pin1View, self).get_context_data(**kwargs)
