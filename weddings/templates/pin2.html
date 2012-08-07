@@ -40,9 +40,10 @@
 
                     <div class="input-append controls">
                         <select name="guest" id="" class="input-medium appendedInputButtons">
+                            {{logged_in_guest}}
                             <option value="">{% trans "nurodyk kas tu ?" %}</option>
                             {% for guest in guests  %}
-                                <option value="{{guest.id}}">{{guest.full_name}}</option>
+                                <option value="{{guest.id}}" {% if guest.id == logged_in_guest %}selected{% endif %}>{{guest.full_name}}</option>
                             {% endfor %}
                         </select>
                         <input type="submit" value="{% trans "Toliau" %}" class="btn btn-medium btn-primary">

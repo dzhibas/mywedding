@@ -11,8 +11,12 @@ from django.utils.translation import ugettext as _
 class Pin2View(TemplateView):
     template_name = "pin2.html"
     guest_list = None
+    logged_in_guest = None
 
     def get(self, request, *args, **kwargs):
+        if 'logged_in_guest' in request.COOKIES:
+            self.logged_in_guest = request.COOKIES['logged_in_guest']
+
         if 'pin_provided' in request.session and 'logged_pin' in request.session:
             invitation = self.check_pin(request.session['logged_pin'])
             if invitation != False:
@@ -31,22 +35,32 @@ class Pin2View(TemplateView):
         if invitation == False:
             return HttpResponseRedirect(reverse('pin1'))
 
-        if 'guest' not in request.POST or request.POST['guest'] == '':
-            messages.error(request, _(u"Pasirinkite svečią iš pateikto sąrašo"))
-            return HttpResponseRedirect(reverse('pin2'))
+        real_guest_count = len(invitation.weddingguest_set.filter(invited=False))
+        if real_guest_count < 2:
+            # Two cases. When there is only one WeddingGuest (invited = False)
+            response = HttpResponseRedirect(reverse('invitation'))
 
-        guests = invitation.weddingguest_set.all()
-        allowed_guest_ids = [guest.id for guest in guests]
+        else:
+            # Second case. When it is more than one WeddingGuest (invited = False)
+            if 'guest' not in request.POST or request.POST['guest'] == '':
+                messages.error(request, _(u"Pasirinkite svečią iš pateikto sąrašo"))
+                return HttpResponseRedirect(reverse('pin2'))
 
-        guest_id = int(request.POST['guest'])
+            guests = invitation.weddingguest_set.all()
+            allowed_guest_ids = [guest.id for guest in guests]
 
-        if guest_id not in allowed_guest_ids:
-            messages.error(request, _(u"Oi oi oi, tu negali pasirinkti šio svečio. Ar tikrai tai tu ?"))
-            return HttpResponseRedirect(reverse('pin2'))
+            guest_id = int(request.POST['guest'])
 
-        request.session['logged_in_quest'] = guest_id
+            if guest_id not in allowed_guest_ids:
+                messages.error(request, _(u"Oi oi oi, tu negali pasirinkti šio svečio. Ar tikrai tai tu ?"))
+                return HttpResponseRedirect(reverse('pin2'))
 
-        return HttpResponseRedirect(reverse('invitation'))
+            request.session['logged_in_quest'] = guest_id
+
+            response = HttpResponseRedirect(reverse('invitation'))
+            response.set_cookie('logged_in_guest', guest_id)
+
+        return response
 
     def check_pin(self, pin):
         try:
@@ -58,4 +72,5 @@ class Pin2View(TemplateView):
         context = super(Pin2View, self).get_context_data(**kwargs)
         context['guests'] = self.guest_list
         context['guest_count'] = len(self.guest_list)
+        context['logged_in_guest'] = int(self.logged_in_guest)
         return context
