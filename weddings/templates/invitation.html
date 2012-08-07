@@ -26,10 +26,12 @@
                 <i class="icon-thumbs-up icon-white"></i>
                 {% trans "Taip dalyvausiu" %}
               </button>
+              <!--
               <button onclick="window.location.href='/answer/{{guest.id}}/3/';" class="btn btn-primary btn-small {% if guest.rsvp_answer == 3 %}active{%endif%}">
                 <i class="icon-question-sign icon-white"></i>
                 {% trans "Galbūt" %}
               </button>
+              -->
               <button onclick="window.location.href='/answer/{{guest.id}}/2/';" class="btn btn-primary btn-small {% if guest.rsvp_answer == 2 %}active{%endif%}">
                 <i class="icon-thumbs-down icon-white"></i>
                 {% trans "Nedalyvausiu" %}

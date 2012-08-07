@@ -3,6 +3,9 @@ from django.core.urlresolvers import reverse_lazy
 from django.views.decorators.cache import never_cache
 from weddings.models import WeddingGuest, Invitation
 import datetime
+from django.http import HttpResponseRedirect
+from django.core.urlresolvers import reverse
+from django.utils.translation import activate
 
 
 class RsvpAnswerView(RedirectView):
@@ -22,6 +25,9 @@ class RsvpAnswerView(RedirectView):
         invitation = self.check_pin(request.session['logged_pin'])
         if invitation == False:
             return response
+
+        activate(invitation.invitation_language)
+        response = HttpResponseRedirect(reverse("invitation"))
 
         answer_id = int(kwargs['answer_id'])
 
