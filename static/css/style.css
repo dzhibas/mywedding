@@ -25,10 +25,24 @@ body {
 #pin1-container {
     width: 500px;
     min-height: 230px;
-    margin: 70px auto 0 auto;
+    margin: 25px auto 0 auto;
     padding: 10px;
     border-radius: 5px;
     color: #fff;
+}
+
+#language-icons {
+    width: 500px;
+    margin: 60px auto 0 auto;
+    color: #fff;
+    height: 11px;
+}
+
+#language-icons li {
+    height: 11px;
+    float: right;
+    width: 23px;
+    list-style-type: none;
 }
 
 .rgba #pin1-container {
@@ -142,13 +156,13 @@ body {
     font-weight: 400;
     size: 25px;
     color: #fff;
-    line-height: 90%;
+    line-height: 95%;
 }
 
 .pin1-title p {
     font-family: 'Source Sans Pro', Arial, serif;
-    font-weight: 300;
-    font-size: 19px;
+    font-weight: 400;
+    font-size: 15px;
     color: #fff;
     line-height: 120%;
 }
