@@ -280,3 +280,14 @@ body {
 }
 
 
+select {
+    width: 220px;
+    border: 1px solid #BBB;
+    height: 28px;
+    line-height: 28px;
+    font-family: 'Source Sans Pro', Arial, serif;
+    font-weight: 400;
+    font-size: 14px;
+    padding: 4px;
+    background-color: #fff;
+}
