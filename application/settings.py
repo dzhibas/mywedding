@@ -36,6 +36,13 @@ TIME_ZONE = 'Europe/Amsterdam'
 # http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = 'lt'
 
+LANGUAGES = (
+    ('lt', 'Lithuanian'),
+    ('en', 'English'),
+    ('ru', 'Russian'),
+    ('nl', 'Dutch'),
+)
+
 SITE_ID = 1
 
 # If you set this to False, Django will make some optimizations so as not
