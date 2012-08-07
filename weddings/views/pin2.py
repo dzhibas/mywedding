@@ -4,7 +4,7 @@ from django.views.generic import TemplateView
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.contrib import messages
-from weddings.models import Invitation
+from weddings.models import Invitation, WeddingGuest
 from django.utils.translation import ugettext as _
 
 
@@ -12,6 +12,8 @@ class Pin2View(TemplateView):
     template_name = "pin2.html"
     guest_list = None
     logged_in_guest = 0
+    invited_guest_id = ""
+    invited_guest_fullname = ""
 
     def get(self, request, *args, **kwargs):
         if 'logged_in_guest' in request.COOKIES:
@@ -20,10 +22,16 @@ class Pin2View(TemplateView):
         if 'pin_provided' in request.session and 'logged_pin' in request.session:
             invitation = self.check_pin(request.session['logged_pin'])
             if invitation != False:
-                guests = invitation.weddingguest_set.all()
+                guests = invitation.weddingguest_set.filter(invited=False)
                 self.guest_list = guests
+                invited_guests = invitation.weddingguest_set.filter(invited=True)
+                if len(invited_guests) > 0:
+                    invitation_guest = invited_guests[0]
+                    self.invited_guest_id = invitation_guest.pk
+                    self.invited_guest_fullname = invitation_guest.full_name
                 return super(Pin2View, self).get(request, *args, **kwargs)
 
+        # in case something went worng
         return HttpResponseRedirect(reverse('pin1'))
 
     # todo - check if lonely guest dont want to get friend
@@ -35,9 +43,45 @@ class Pin2View(TemplateView):
         if invitation == False:
             return HttpResponseRedirect(reverse('pin1'))
 
-        real_guest_count = len(invitation.weddingguest_set.filter(invited=False))
+        real_guests = invitation.weddingguest_set.filter(invited=False)
+        real_guest_count = len(real_guests)
         if real_guest_count < 2:
             # Two cases. When there is only one WeddingGuest (invited = False)
+
+            # get already invited guests
+            invited_guests = invitation.weddingguest_set.filter(invited=True)
+
+            # check if name was entered
+            if 'invitation_guest_fullname' in request.POST and request.POST['invitation_guest_fullname'] != '':
+                # guest fullname was provided
+                provided_full_name = request.POST['invitation_guest_fullname'].strip()
+                first_name = ""
+                last_name = ""
+                if len(provided_full_name.split(' ')) == 2:
+                    first_name, last_name = provided_full_name.split(' ')
+                elif len(provided_full_name.split(' ')) > 2:
+                    first_name, last_name = provided_full_name.split(' ')[:2]
+                else:
+                    first_name = provided_full_name.strip()
+
+                # if there is already invited guests lets update their fullname with provided now
+                if len(invited_guests) > 0:
+                    # save existing
+                    invited_guest = invited_guests[0]
+                    invited_guest.first_name = first_name
+                    invited_guest.last_name = last_name
+                    invited_guest.invited_by = real_guests[0]
+                    invited_guest.save()
+                else:
+                    # create a new one
+                    new_guest = WeddingGuest()
+                    new_guest.invited = True
+                    new_guest.invitation = invitation
+                    new_guest.invited_by = real_guests[0]
+                    new_guest.first_name = first_name
+                    new_guest.last_name = last_name
+                    new_guest.save()
+
             response = HttpResponseRedirect(reverse('invitation'))
 
         else:
@@ -73,4 +117,6 @@ class Pin2View(TemplateView):
         context['guests'] = self.guest_list
         context['guest_count'] = len(self.guest_list)
         context['logged_in_guest'] = int(self.logged_in_guest)
+        context['invitation_guest_id'] = self.invited_guest_id
+        context['invitation_guest_fullname'] = self.invited_guest_fullname
         return context

@@ -33,8 +33,8 @@
                     <p>{% trans "<b>Hey</b>!<br/>Panašu kad Jūs vienas be poros. Negerai... Jei ketinate ateiti su kažkuo prašome užpildyti Jūsų poros vardą pavardę. Jei ketinate ateiti vieni tiesiog spauskite '<b>Toliau</b>'" %}</p>
 
                     <div class="input-append controls">
-                        <input type="hidden" name="guest_invited_id" value="">
-                        <input type="text" name="guest_invited" value="" placeholder="{% trans "Vardas Pavardė" %}">
+                        <input type="hidden" name="invitation_guest_id" value="{{invitation_guest_id}}">
+                        <input type="text" name="invitation_guest_fullname" value="{{invitation_guest_fullname}}" placeholder="{% trans "Vardas Pavardė" %}">
                         <input type="submit" value="{% trans "Toliau" %}" class="btn btn-medium btn-primary">
                     </div>
 
