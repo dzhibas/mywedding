@@ -18,7 +18,9 @@ class Pin1View(TemplateView):
 
     def get(self, request, *args, **kwargs):
         if 'pin_provided' in request.session and 'logged_pin' in request.session:
-            if self.check_pin(request.session['logged_pin']):
+            invitation = self.check_pin(request.session['logged_pin'])
+            if invitation != False:
+                activate(invitation.invitation_language)
                 messages.success(request, _(u"Kodas patikrintas"))
                 return HttpResponseRedirect(reverse('pin2'))
 
@@ -84,8 +86,7 @@ class Pin1View(TemplateView):
 
     def check_pin(self, pin):
         try:
-            Invitation.objects.get(invite_code__iexact=pin)
-            return True
+            return Invitation.objects.get(invite_code__iexact=pin)
         except Invitation.DoesNotExist:
             return False
         except Invitation.MultipleObjectsReturned:
