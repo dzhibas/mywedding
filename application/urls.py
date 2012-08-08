@@ -8,6 +8,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^answer/(?P<person_id>\d+)/(?P<answer_id>\d+)/$', RsvpAnswerView.as_view(), name='answer'),
+    url(r'^a/(?P<person_id>\d+)/(?P<answer_id>\d+)/$', answer, name='answer_ajax'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^markdown/', include('django_markdown.urls')),
     url(r'^l/$', 'weddings.i18n.set_language'),

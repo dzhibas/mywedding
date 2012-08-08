@@ -37,18 +37,19 @@
 
 <div class="invitation-questions">
     <div class="guest_list clearfix">
+        <div id="saving" class="saving"><img src="/static/img/spinner.gif"/></div>
         {% for guest in guests %}
 
             <div class="guest">
-                <div class="guest-name">{{guest.full_name}}</div>  
-                <div class="guest-answer">{% trans guest.get_rsvp_answer_display %}</div>
+                <div class="guest-name">{{guest.full_name}}</div>
+                <div id="guest-answer-{{guest.id}}" class="guest-answer">{% trans guest.get_rsvp_answer_display %}</div>
                 <div class="answer-buttons">
                     <div class="btn-group" data-toggle="buttons-radio">
-                      <button onclick="window.location.href='/answer/{{guest.id}}/1/';" class="btn btn-primary btn-small {% if guest.rsvp_answer == 1 %}active{%endif%}">
+                      <button onclick="save_rsvp_answer({{guest.id}},1);" class="btn btn-primary btn-small {% if guest.rsvp_answer == 1 %}active{%endif%}">
                         <i class="icon-thumbs-up icon-white"></i>
                         {% trans "Taip dalyvausiu" %}
                       </button>
-                      <button onclick="window.location.href='/answer/{{guest.id}}/2/';" class="btn btn-primary btn-small {% if guest.rsvp_answer == 2 %}active{%endif%}">
+                      <button onclick="save_rsvp_answer({{guest.id}},2);" class="btn btn-primary btn-small {% if guest.rsvp_answer == 2 %}active{%endif%}">
                         <i class="icon-thumbs-down icon-white"></i>
                         {% trans "Nedalyvausiu" %}
                       </button>
@@ -67,5 +68,18 @@
 window.jQuery(document).ready(function() {
     window.jQuery('.btn-group').button();
 });
+
+function save_rsvp_answer(guest, answer)
+{
+    $("#saving").show();
+    $.ajax({
+        url: "/a/"+guest+"/"+answer+"/",
+    }).done(function(data) {
+        if (data.success == 'true' && data.new_status) {
+            $("#guest-answer-"+guest).text(data.new_status);
+        }
+        $("#saving").hide();
+    });
+}
 </script>
 {% endblock footer %}

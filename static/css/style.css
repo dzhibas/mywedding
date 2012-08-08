@@ -335,3 +335,12 @@ select {
 .answer-buttons {
 
 }
+
+.saving {
+    background-color: #fff;
+    width: 16px;
+    height: 16px;
+    padding: 3px;
+    float: right;
+    display: none;
+}
