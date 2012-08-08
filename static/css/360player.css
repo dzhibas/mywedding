@@ -219,7 +219,7 @@
 
 .ui360 .sm2-360ui.sm2_buffering .sm2-360btn,
 .ui360 .sm2-360ui.sm2_buffering .sm2-360btn:hover {
-  background:transparent url(icon_loading_spinner.gif) no-repeat 50% 50%;
+  background:transparent url(/static/img/icon_loading_spinner.gif) no-repeat 50% 50%;
   opacity:0.5;
   visibility:visible;
 }
