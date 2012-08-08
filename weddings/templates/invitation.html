@@ -36,25 +36,26 @@
 {% include "menu.html" %}
 
 <div class="invitation-questions">
-    <div class="guest_list">
+    <div class="guest_list clearfix">
         {% for guest in guests %}
-            {{guest.full_name}} - {% trans guest.get_rsvp_answer_display %}
-            <div class="btn-group" data-toggle="buttons-radio">
-              <button onclick="window.location.href='/answer/{{guest.id}}/1/';" class="btn btn-primary btn-small {% if guest.rsvp_answer == 1 %}active{%endif%}">
-                <i class="icon-thumbs-up icon-white"></i>
-                {% trans "Taip dalyvausiu" %}
-              </button>
-              <!--
-              <button onclick="window.location.href='/answer/{{guest.id}}/3/';" class="btn btn-primary btn-small {% if guest.rsvp_answer == 3 %}active{%endif%}">
-                <i class="icon-question-sign icon-white"></i>
-                {% trans "Galbūt" %}
-              </button>
-              -->
-              <button onclick="window.location.href='/answer/{{guest.id}}/2/';" class="btn btn-primary btn-small {% if guest.rsvp_answer == 2 %}active{%endif%}">
-                <i class="icon-thumbs-down icon-white"></i>
-                {% trans "Nedalyvausiu" %}
-              </button>
+
+            <div class="guest">
+                <div class="guest-name">{{guest.full_name}}</div>  
+                <div class="guest-answer">{% trans guest.get_rsvp_answer_display %}</div>
+                <div class="answer-buttons">
+                    <div class="btn-group" data-toggle="buttons-radio">
+                      <button onclick="window.location.href='/answer/{{guest.id}}/1/';" class="btn btn-primary btn-small {% if guest.rsvp_answer == 1 %}active{%endif%}">
+                        <i class="icon-thumbs-up icon-white"></i>
+                        {% trans "Taip dalyvausiu" %}
+                      </button>
+                      <button onclick="window.location.href='/answer/{{guest.id}}/2/';" class="btn btn-primary btn-small {% if guest.rsvp_answer == 2 %}active{%endif%}">
+                        <i class="icon-thumbs-down icon-white"></i>
+                        {% trans "Nedalyvausiu" %}
+                      </button>
+                    </div>
+                </div>
             </div>
+            
         {% endfor %}
     </div>
 </div>
@@ -65,8 +66,6 @@
 <script type="text/javascript">
 window.jQuery(document).ready(function() {
     window.jQuery('.btn-group').button();
-
-
 });
 </script>
 {% endblock footer %}

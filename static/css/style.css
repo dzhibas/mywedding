@@ -189,7 +189,7 @@ body {
 
 .invitation-body {
     font-family: 'Source Sans Pro', Arial, serif;
-    font-weight: 300;
+    font-weight: 400;
     font-size: 16px;
     color: #fff;
     line-height: 120%;
@@ -311,4 +311,27 @@ select {
     text-decoration: none;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 13px;
+}
+
+.guest_list {
+
+}
+
+.guest {
+    float: left;
+    width: 276px;
+    margin-bottom: 17px;
+}
+.guest-name {
+    font-weight: 700;
+    font-size: 26px;
+    font-family: 'Source Sans Pro', Arial, serif;
+}
+.guest-answer {
+    color: #fff;
+    font-size: 13px;
+}
+
+.answer-buttons {
+
 }

@@ -58,8 +58,8 @@ function ThreeSixtyPlayer() {
   this.config = {
 
     playNext: false,   // stop after one sound, or play through list until end
-    autoPlay: true,   // start playing the first sound right away
-    autoLoad: true,   // start playing the first sound right away
+    autoPlay: false,   // start playing the first sound right away
+    autoLoad: false,   // start playing the first sound right away
     steam: true,   // start playing the first sound right away
     allowMultiple: false,  // let many sounds play at once (false = only one sound playing at a time)
     loadRingColor: '#ccc', // how much has loaded
