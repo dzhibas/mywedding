@@ -344,3 +344,9 @@ select {
     float: right;
     display: none;
 }
+
+.story-container {
+    width: 720px;
+    padding: 0;
+    margin: 70px auto 0 auto;
+}
