@@ -1,5 +1,6 @@
 *.pyc
+*.rej
 *.db
-local_settings.py
-application/local_settings.py
+application/local_*
 env
+.DS_Store
