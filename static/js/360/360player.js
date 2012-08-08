@@ -803,10 +803,11 @@ function ThreeSixtyPlayer() {
     if (canvas.getContext){
       // use getContext to use the canvas for drawing
       ctx = canvas.getContext('2d');
+
+      width = canvas.offsetWidth;
+      height = canvas.offsetHeight;
+      ctx.clearRect(-(width/2), -(height/2), width, height);
     }
-    width = canvas.offsetWidth;
-    height = canvas.offsetHeight;
-    ctx.clearRect(-(width/2), -(height/2), width, height);
 
   };
 
