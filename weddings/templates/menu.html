@@ -1,7 +1,9 @@
 {% load i18n %}
 {% get_current_language as LANGUAGE_CODE %}
 
-<div class="invitation-menu">
+<div class="invitation-menu clearfix">
+    <div id="pirslybos" class="ui360 sm2-inline-block"><a href="/static/mp3/pirslybos.mp3">Piršlybos</a></div>
+
     <ul class="clearfix">
         <li><a href="{% url invitation %}">{% trans "Kvietimas" %}</a></li>
         <li><a href="{% url story %}">{% trans "Kaip taip atsitiko?" %}</a></li>
@@ -9,4 +11,5 @@
         <li><a href="{% url friends %}">{% trans "Draugų ratas" %}</a></li>
         <li class="last"><a href="mailto:nikolajus@gmail.com?subject=rsvp">{% trans "Klausk? - atsakysim!" %}</a></li>
     </ul>
+
 </div>
