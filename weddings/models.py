@@ -127,6 +127,7 @@ class Question(models.Model):
     """ Poll question """
 
     question = models.TextField('Question')
+    description = models.TextField('Description', null=True, blank=True)
     poll = models.ForeignKey(Poll, related_name="questions")
 
     objects = QuestionManager()
