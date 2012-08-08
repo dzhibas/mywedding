@@ -4,3 +4,4 @@ from invitation import InvitationView
 from rsvpanswer import RsvpAnswerView
 from friends import FriendsView
 from story import StoryView
+from indexredirect import IndexRedirectView

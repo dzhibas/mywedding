@@ -11,10 +11,10 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^markdown/', include('django_markdown.urls')),
     url(r'^l/$', 'weddings.i18n.set_language'),
+    url(r'^$', IndexRedirectView.as_view(), name="index")
 )
 
 urlpatterns += i18n_patterns('',
-    url(r'^$', Pin1View.as_view(), name='pin1'),
     url(r'^1/$', Pin1View.as_view(), name='pin1'),
     url(r'^2/$', Pin2View.as_view(), name='pin2'),
     url(r'^invitation/$', InvitationView.as_view(), name='invitation'),
