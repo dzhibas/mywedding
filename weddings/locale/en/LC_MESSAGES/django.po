@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-08-09 15:46+0200\n"
-"PO-Revision-Date: 2012-08-07 08:47+0100\n"
+"PO-Revision-Date: 2012-08-09 15:50+0100\n"
 "Last-Translator: Nikolajus <nikolajus@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -16,14 +16,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: templates/friends.html:7 templates/menu.html:11
+#: templates/friends.html:7
+#: templates/menu.html:11
 msgid "Draugų ratas"
 msgstr "Friend circle"
 
 #: templates/friends.html:10
-#, fuzzy
 msgid "pažiūrėkime ką atsakė jūsų draugų ratas"
-msgstr "what answered your friends"
+msgstr "lets see what your friend circle answered"
 
 #: templates/invitation.html:27
 msgid "2012 rugsėjo 22d. 14:30 - Palangos bažnyčia"
@@ -39,7 +39,7 @@ msgstr "I cannot attend"
 
 #: templates/invitation.html:66
 msgid "Prašome atsakyti dar keletą klausimų"
-msgstr ""
+msgstr "Please answer some more questions"
 
 #: templates/menu.html:8
 msgid "Kvietimas"
@@ -62,16 +62,16 @@ msgid "Jei užėjote čia, reiškia esate pakviesti"
 msgstr "If you are here, means you invited"
 
 #: templates/pin1.html:20
-msgid ""
-"bet mes įtarūs, tad įveskite prašom kodą kurį gavote kartu su el. pakvietimu"
-msgstr ""
-"but we are suspicious, please enter invitation code provided in your email"
+msgid "bet mes įtarūs, tad įveskite prašom kodą kurį gavote kartu su el. pakvietimu"
+msgstr "but we are suspicious, please enter invitation code provided in your email"
 
 #: templates/pin1.html:36
 msgid "KODAS"
 msgstr "CODE"
 
-#: templates/pin1.html:37 templates/pin2.html:38 templates/pin2.html.py:52
+#: templates/pin1.html:37
+#: templates/pin2.html:38
+#: templates/pin2.html.py:52
 msgid "Toliau"
 msgstr "Next"
 
@@ -89,18 +89,15 @@ msgstr "choose your name in selectbox bellow"
 
 #: templates/pin2.html:30
 msgid "Į kvietimą"
-msgstr ""
+msgstr "Go to invitation"
 
 #: templates/pin2.html:33
-msgid ""
-"<b>Hey</b>!<br/>Panašu kad Jūs vienas be poros. Negerai... Jei ketinate "
-"ateiti su kažkuo prašome užpildyti Jūsų poros vardą pavardę. Jei ketinate "
-"ateiti vieni tiesiog spauskite '<b>Toliau</b>'"
-msgstr ""
+msgid "<b>Hey</b>!<br/>Panašu kad Jūs vienas be poros. Negerai... Jei ketinate ateiti su kažkuo prašome užpildyti Jūsų poros vardą pavardę. Jei ketinate ateiti vieni tiesiog spauskite '<b>Toliau</b>'"
+msgstr "<b>Hey!</b><br/>Looks like you are alone. Do you want to invite your friend with you? Feel free to fill in fullname of your friend and press \"Next\""
 
 #: templates/pin2.html:37
 msgid "Vardas Pavardė"
-msgstr ""
+msgstr "Name Surname"
 
 #: templates/pin2.html:47
 msgid "nurodyk kas tu ?"
@@ -122,7 +119,8 @@ msgstr "That's it. You locked for next 3 hours"
 msgid "Kodas patvirtintas"
 msgstr "Code verified"
 
-#: views/pin1.py:73 views/pin1.py:76
+#: views/pin1.py:73
+#: views/pin1.py:76
 msgid "Tokio kodo nėra"
 msgstr "No such code"
 
@@ -132,8 +130,7 @@ msgstr "Choose guest from list below"
 
 #: views/pin2.py:101
 msgid "Oi oi oi, tu negali pasirinkti šio svečio. Ar tikrai tai tu ?"
-msgstr ""
-"You kiddin ? You cannot choose this guest, something went wrong, call police"
+msgstr "You kiddin ? You cannot choose this guest, something went wrong, call police"
 
 #~ msgid "Galbūt"
 #~ msgstr "Maybe"
