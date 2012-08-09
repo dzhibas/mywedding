@@ -58,6 +58,37 @@
             </div>
             
         {% endfor %}
+        
+        {% if invitation.questions %}
+
+        <div class="clear"></div>
+        <div class="poll-title">
+            {% trans "Prašome atsakyti dar keletą klausimų" %}
+        </div>
+        <div class="question-list">
+            
+            {% for question in invitation.questions.questions.all %}
+                
+            <div class="question clearfix">
+                <div class="question-answers">
+                    <div class="btn-group" data-toggle="buttons-radio">
+                    {% for choice in question.choices.all %}
+                      <button onclick="javascript:save_choice({{choice.pk}});" class="btn btn-primary btn-small {% if choice.pk in poll_answers %}active{%endif%}">
+                        {% trans choice.text %}
+                      </button>
+                    {% endfor %}
+                    </div>
+                </div>
+
+                <div class="question-question">{{question.question}}</div>
+                <div class="question-description">{{question.description}}</div>
+            </div>
+            {% endfor %}
+
+        </div>
+
+        {% endif %}
+
     </div>
 </div>
 
@@ -78,6 +109,18 @@ function save_rsvp_answer(guest, answer)
         if (data.success == 'true' && data.new_status) {
             $("#guest-answer-"+guest).text(data.new_status);
         }
+        $("#saving").hide();
+    });
+}
+
+function save_choice(choice)
+{
+    $("#saving").show();
+    $.ajax({
+        url: "/p/"+choice+"/",
+    }).done(function(data) {
+        $("#saving").hide();
+    }).fail(function(data) {
         $("#saving").hide();
     });
 }

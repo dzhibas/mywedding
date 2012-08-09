@@ -8,7 +8,7 @@ body {
 .invitation-container {
     width: 700px;
     min-height: 300px;
-    margin: 70px auto 0 auto;
+    margin: 45px auto 0 auto;
     padding: 10px 10px 10px 20px;
     border-radius: 5px;
     color: #fff;
@@ -349,4 +349,57 @@ select {
     width: 720px;
     padding: 0;
     margin: 70px auto 0 auto;
+}
+
+.clear {
+    clear: both;
+}
+
+.poll-title {
+    font-size: 21px;
+    font-family: 'Source Sans Pro', Arial, serif;
+    font-weight: 700;
+    border-bottom: 1px dashed #fff;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+}
+.question-list {
+    padding-top: 10px;
+}
+
+.question {
+    padding-bottom: 10px;
+}
+
+.question-question {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.question-description {
+    font-size: 14px;
+    color: #E5E5E5;
+    width: 431px;
+}
+
+.question-answers {
+    float: right;
+    width: 276px;
+    text-align: right;
+}
+
+.friend-name {
+    font-weight: 700;
+    font-size: 21px;
+    font-family: 'Source Sans Pro', Arial, serif;   
+}
+.friend-answer {
+    color: #fff;
+    font-size: 13px;
+}
+
+.friend {
+    float: left;
+    width: 300px;
+    height: 61px;
 }

@@ -82,6 +82,8 @@ class Pin2View(TemplateView):
                     new_guest.last_name = last_name
                     new_guest.save()
 
+            request.session['logged_in_guest'] = real_guests[0].pk
+
             response = HttpResponseRedirect(reverse('invitation'))
 
         else:

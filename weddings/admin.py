@@ -75,3 +75,19 @@ class QuestionAdmin(admin.ModelAdmin):
 
 admin.site.register(Question, QuestionAdmin)
 admin.site.register(Poll, PollAlladmin)
+
+
+class UserChoiceAdmin(admin.ModelAdmin):
+    model = UserChoice
+    list_display = ('weddingguest', 'choice__question', 'choice', 'invitation', 'who_invited', )
+
+    def choice__question(self, obj):
+        return obj.choice.question
+
+    def who_invited(self, obj):
+        who = ""
+        for guest in obj.invitation.weddingguest_set.all():
+            who += str(guest) + ","
+        return who
+
+admin.site.register(UserChoice, UserChoiceAdmin)

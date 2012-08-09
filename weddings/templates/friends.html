@@ -7,12 +7,19 @@
         <h1>{% trans "Draugų ratas" %}</h1>
 
         <div class="invitation-body">
-            <p>{% trans "ką atsakė jūsų draugai" %}</p>
+            <p>{% trans "pažiūrėkime ką atsakė jūsų draugų ratas" %}</p>
 
+            <div class="friend-list clearfix">
+                
+                {% for friend in friends %}
+                <div class="friend">
+                    <div class="friend-name">{{friend.full_name}}</div>
+                    <div class="friend-answer">{% trans friend.get_rsvp_answer_display %}</div>
+                </div>
+                {% endfor %}
+
+            </div>
             <ul>
-            {% for friend in friends %}
-                <li>{{friend.full_name}} - {{friend.get_rsvp_answer_display}}</li>
-            {% endfor %}
             </ul>
         </div>
 </div>
@@ -20,3 +27,22 @@
 {% include "menu.html" %}
 
 {% endblock content %}
+
+
+{% block extrahead %}
+    <link rel="stylesheet" type="text/css" href="/static/css/360player.css" />
+    <!--[if IE]><script type="text/javascript" src="/static/js/360/excanvas.js"></script><![endif]-->
+    <script type="text/javascript" src="/static/js/360/berniecode-animator.js"></script>
+    <script type="text/javascript" src="/static/libs/soundmanager2-jsmin.js"></script>
+    <script type="text/javascript" src="/static/js/360/360player.js"></script>
+    <script type="text/javascript">
+    soundManager.setup({
+      url: '/static/swf/',
+      defaultOptions: {
+        volume: 50,
+        stream: true
+      }
+    });
+    </script>
+
+{% endblock extrahead %}

@@ -6,3 +6,4 @@ from rsvpanswer_ajax import answer
 from friends import FriendsView
 from story import StoryView
 from indexredirect import IndexRedirectView
+from pollanswer_ajax import poll_answer

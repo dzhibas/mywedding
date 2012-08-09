@@ -1,7 +1,7 @@
 from django.views.generic import TemplateView
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
-from weddings.models import Invitation
+from weddings.models import Invitation, UserChoice, WeddingGuest
 
 
 class InvitationView(TemplateView):
@@ -25,6 +25,13 @@ class InvitationView(TemplateView):
 
         self.invitation = invitation
 
+        if 'logged_in_guest' in request.session:
+            logged_guest_id = int(request.session['logged_in_guest'])
+            try:
+                self.guest = WeddingGuest.objects.get(pk=logged_guest_id)
+            except:
+                pass
+
         response = super(InvitationView, self).get(request, *args, **kwargs)
         return response
 
@@ -33,6 +40,14 @@ class InvitationView(TemplateView):
         context['invitation'] = self.invitation
         context['guests'] = self.invitation.weddingguest_set.all()
         context['guest_count'] = len(context['guests'])
+
+        answers = UserChoice.objects.filter(invitation=self.invitation)
+        if self.guest != None:
+            answers.filter(weddingguest=self.guest)
+
+        all_choices = [answer.choice.pk for answer in answers]
+        context['poll_answers'] = all_choices
+
         return context
 
     def check_pin(self, pin):
