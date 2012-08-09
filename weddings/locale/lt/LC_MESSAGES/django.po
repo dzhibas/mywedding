@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-07 08:47+0200\n"
+"POT-Creation-Date: 2012-08-09 15:46+0200\n"
 "PO-Revision-Date: 2012-08-06 17:13+0100\n"
 "Last-Translator: Nikolajus <nikolajus@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,60 +18,60 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
 "%100<10 || n%100>=20) ? 1 : 2)\n"
 
-#: templates/friends.html:7 templates/menu.html:9
+#: templates/friends.html:7 templates/menu.html:11
 msgid "Draugų ratas"
 msgstr ""
 
 #: templates/friends.html:10
-msgid "ką atsakė jūsų draugai"
-msgstr ""
-
-#: templates/invitation.html:9
-msgid "2012 rugsėjo 22d. 14:30 - Palangos bažnyčia"
+msgid "pažiūrėkime ką atsakė jūsų draugų ratas"
 msgstr ""
 
 #: templates/invitation.html:27
+msgid "2012 rugsėjo 22d. 14:30 - Palangos bažnyčia"
+msgstr ""
+
+#: templates/invitation.html:50
 msgid "Taip dalyvausiu"
 msgstr ""
 
-#: templates/invitation.html:31
-msgid "Galbūt"
-msgstr ""
-
-#: templates/invitation.html:35
+#: templates/invitation.html:54
 msgid "Nedalyvausiu"
 msgstr ""
 
-#: templates/menu.html:6
-msgid "Kvietimas"
-msgstr ""
-
-#: templates/menu.html:7
-msgid "Kaip taip atsitiko?"
+#: templates/invitation.html:66
+msgid "Prašome atsakyti dar keletą klausimų"
 msgstr ""
 
 #: templates/menu.html:8
-msgid "Žemėlapis ir programa"
+msgid "Kvietimas"
+msgstr ""
+
+#: templates/menu.html:9
+msgid "Kaip taip atsitiko?"
 msgstr ""
 
 #: templates/menu.html:10
+msgid "Žemėlapis ir programa"
+msgstr ""
+
+#: templates/menu.html:12
 msgid "Klausk? - atsakysim!"
 msgstr ""
 
-#: templates/pin1.html:11
+#: templates/pin1.html:19
 msgid "Jei užėjote čia, reiškia esate pakviesti"
 msgstr ""
 
-#: templates/pin1.html:12
+#: templates/pin1.html:20
 msgid ""
 "bet mes įtarūs, tad įveskite prašom kodą kurį gavote kartu su el. pakvietimu"
 msgstr ""
 
-#: templates/pin1.html:28
+#: templates/pin1.html:36
 msgid "KODAS"
 msgstr ""
 
-#: templates/pin1.html:29 templates/pin2.html:33
+#: templates/pin1.html:37 templates/pin2.html:38 templates/pin2.html.py:52
 msgid "Toliau"
 msgstr ""
 
@@ -87,35 +87,50 @@ msgstr ""
 msgid "pasirinkite žemiau esančiame langelyje savo vardą/pavardę ar slapyvardį"
 msgstr ""
 
-#: templates/pin2.html:28
+#: templates/pin2.html:30
+msgid "Į kvietimą"
+msgstr ""
+
+#: templates/pin2.html:33
+msgid ""
+"<b>Hey</b>!<br/>Panašu kad Jūs vienas be poros. Negerai... Jei ketinate "
+"ateiti su kažkuo prašome užpildyti Jūsų poros vardą pavardę. Jei ketinate "
+"ateiti vieni tiesiog spauskite '<b>Toliau</b>'"
+msgstr ""
+
+#: templates/pin2.html:37
+msgid "Vardas Pavardė"
+msgstr ""
+
+#: templates/pin2.html:47
 msgid "nurodyk kas tu ?"
 msgstr ""
 
-#: views/pin1.py:20
+#: views/pin1.py:24
 msgid "Kodas patikrintas"
 msgstr ""
 
-#: views/pin1.py:31
+#: views/pin1.py:35
 msgid "Nurodykite kodą"
 msgstr ""
 
-#: views/pin1.py:43
+#: views/pin1.py:47
 msgid "Prisižaidėt. Dabar tris valandas spėlioti nebegalit"
 msgstr ""
 
-#: views/pin1.py:53
+#: views/pin1.py:71
 msgid "Kodas patvirtintas"
 msgstr ""
 
-#: views/pin1.py:55 views/pin1.py:58
+#: views/pin1.py:73 views/pin1.py:76
 msgid "Tokio kodo nėra"
 msgstr ""
 
-#: views/pin2.py:35
+#: views/pin2.py:92
 msgid "Pasirinkite svečią iš pateikto sąrašo"
 msgstr ""
 
-#: views/pin2.py:44
+#: views/pin2.py:101
 msgid "Oi oi oi, tu negali pasirinkti šio svečio. Ar tikrai tai tu ?"
 msgstr ""
 
