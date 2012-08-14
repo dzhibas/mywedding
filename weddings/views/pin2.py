@@ -101,7 +101,7 @@ class Pin2View(TemplateView):
                 messages.error(request, _(u"Oi oi oi, tu negali pasirinkti šio svečio. Ar tikrai tai tu ?"))
                 return HttpResponseRedirect(reverse('pin2'))
 
-            request.session['logged_in_quest'] = guest_id
+            request.session['logged_in_guest'] = guest_id
 
             response = HttpResponseRedirect(reverse('invitation'))
             response.set_cookie('logged_in_guest', guest_id)

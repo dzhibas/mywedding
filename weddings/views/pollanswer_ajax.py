@@ -6,7 +6,6 @@ from django.utils import simplejson
 def poll_answer(request, *args, **kwargs):
     response_data = {}
     response_data['success'] = 'false'
-
     json_data = simplejson.dumps(response_data)
     response = HttpResponse(json_data, mimetype='application/javascript')
 
@@ -29,9 +28,10 @@ def poll_answer(request, *args, **kwargs):
     if real_guest_count < 2:
         wedding_guest = real_guests[0]
     else:
+        # import ipdb; ipdb.set_trace()
         if 'logged_in_guest' in request.session:
             try:
-                wedding_guest = invitation.wedding_guest.get(pk=int(request.session['logged_in_guest']))
+                wedding_guest = invitation.weddingguest_set.get(pk=int(request.session['logged_in_guest']))
             except:
                 return response
 
