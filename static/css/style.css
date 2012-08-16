@@ -421,3 +421,13 @@ select {
     margin-right: -171px;
     display: inline;
 }
+
+.agenda {
+    min-height: 450px;
+    color: #fff;
+}
+
+.agenda a, .agenda a:visited, .agenda a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
