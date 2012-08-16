@@ -10,6 +10,13 @@ from django.utils.translation import ugettext as _
 from django.utils.translation import activate
 from datetime import datetime
 
+temp_answer_translations = (
+            (0, _("Not answered")),
+            (1, _("Will attend")),
+            (2, _("Will not attend")),
+            (3, _("Maybe"))
+        )
+
 
 def send_invitation(modeladmin, request, queryset):
     messages_to_send = []

@@ -7,29 +7,47 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-16 14:22+0200\n"
-"PO-Revision-Date: 2012-08-09 16:02+0100\n"
+"POT-Creation-Date: 2012-08-16 15:00+0200\n"
+"PO-Revision-Date: 2012-08-16 15:06+0100\n"
 "Last-Translator: Nikolajus <nikolajus@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 
-#: admin.py:24
+#: admin.py:14
+msgid "Not answered"
+msgstr "Ответа нету"
+
+#: admin.py:15
+msgid "Will attend"
+msgstr "Будет учяствовать"
+
+#: admin.py:16
+msgid "Will not attend"
+msgstr "Не будет учяствовать"
+
+#: admin.py:17
+msgid "Maybe"
+msgstr "Навернека"
+
+#: admin.py:32
 msgid "Jūs pakviesti! Kur? Žiūrėkite į laiško vidų."
-msgstr ""
+msgstr "Вы преглошены! Куда ? Читайте письмо"
 
-#: admin.py:25
+#: admin.py:33
 #, python-format
 msgid ""
 "Jūsų kodas: %(code)s \n"
 "Jo prireiks apsilankius svetainėje: http://rsvp.gang.lt"
 msgstr ""
+"Ваш код: %(code)s \n"
+"Он вам пригадитса в странице: http://rsvp.gang.lt"
 
-#: templates/friends.html:7 templates/menu.html:11
+#: templates/friends.html:7
+#: templates/menu.html:11
 msgid "Draugų ratas"
 msgstr "Вашы друзя"
 
@@ -74,15 +92,16 @@ msgid "Jei užėjote čia, reiškia esate pakviesti"
 msgstr "Эсли вы тут, значет вы приглашены"
 
 #: templates/pin1.html:24
-msgid ""
-"bet mes įtarūs, tad įveskite prašom kodą kurį gavote kartu su el. pakvietimu"
+msgid "bet mes įtarūs, tad įveskite prašom kodą kurį gavote kartu su el. pakvietimu"
 msgstr "но мы параноики, так што даваите ввадите код каторый палучили в писме"
 
 #: templates/pin1.html:40
 msgid "KODAS"
 msgstr "КОД"
 
-#: templates/pin1.html:41 templates/pin2.html:38 templates/pin2.html.py:52
+#: templates/pin1.html:41
+#: templates/pin2.html:38
+#: templates/pin2.html.py:52
 msgid "Toliau"
 msgstr "Дальше"
 
@@ -103,13 +122,8 @@ msgid "Į kvietimą"
 msgstr "Пряма в приглашениа"
 
 #: templates/pin2.html:33
-msgid ""
-"<b>Hey</b>!<br/>Panašu kad Jūs vienas be poros. Negerai... Jei ketinate "
-"ateiti su kažkuo prašome užpildyti Jūsų poros vardą pavardę. Jei ketinate "
-"ateiti vieni tiesiog spauskite '<b>Toliau</b>'"
-msgstr ""
-"Оопсик. Вроде бы вы одни в приглашение. Эсли хочете ково нибуть пасвать "
-"набирите Имя и фамилия ниже и нажмите \"Дальше\""
+msgid "<b>Hey</b>!<br/>Panašu kad Jūs vienas be poros. Negerai... Jei ketinate ateiti su kažkuo prašome užpildyti Jūsų poros vardą pavardę. Jei ketinate ateiti vieni tiesiog spauskite '<b>Toliau</b>'"
+msgstr "Оопсик. Вроде бы вы одни в приглашение. Эсли хочете ково нибуть пасвать набирите Имя и фамилия ниже и нажмите \"Дальше\""
 
 #: templates/pin2.html:37
 msgid "Vardas Pavardė"
@@ -129,15 +143,14 @@ msgstr "Укажыте код"
 
 #: views/pin1.py:47
 msgid "Prisižaidėt. Dabar tris valandas spėlioti nebegalit"
-msgstr ""
-"Допрыгались. Счас мы вас заблокиравали на три часа. Пишыте письма, эсли "
-"знаете куда"
+msgstr "Допрыгались. Счас мы вас заблокиравали на три часа. Пишыте письма, эсли знаете куда"
 
 #: views/pin1.py:71
 msgid "Kodas patvirtintas"
 msgstr "Код подвердён"
 
-#: views/pin1.py:73 views/pin1.py:76
+#: views/pin1.py:73
+#: views/pin1.py:76
 msgid "Tokio kodo nėra"
 msgstr "Таково кода нету у нас"
 
@@ -148,3 +161,4 @@ msgstr "Выберите гостя из списка ниже"
 #: views/pin2.py:101
 msgid "Oi oi oi, tu negali pasirinkti šio svečio. Ar tikrai tai tu ?"
 msgstr "Оопс. Вам нильзиа выбрать етово гостя."
+
