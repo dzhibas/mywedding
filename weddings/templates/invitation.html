@@ -107,26 +107,26 @@ window.jQuery(document).ready(function() {
 
 function save_rsvp_answer(guest, answer)
 {
-    $("#saving").show();
-    $.ajax({
+    window.jQuery("#saving").show();
+    window.jQuery.ajax({
         url: "/a/"+guest+"/"+answer+"/",
     }).done(function(data) {
         if (data.success == 'true' && data.new_status) {
-            $("#guest-answer-"+guest).text(data.new_status);
+            window.jQuery("#guest-answer-"+guest).text(data.new_status);
         }
-        $("#saving").hide();
+        window.jQuery("#saving").hide();
     });
 }
 
 function save_choice(choice)
 {
-    $("#saving").show();
-    $.ajax({
+    window.jQuery("#saving").show();
+    window.jQuery.ajax({
         url: "/p/"+choice+"/",
     }).done(function(data) {
-        $("#saving").hide();
+        window.jQuery("#saving").hide();
     }).fail(function(data) {
-        $("#saving").hide();
+        window.jQuery("#saving").hide();
     });
 }
 </script>
