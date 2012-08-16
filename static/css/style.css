@@ -19,7 +19,8 @@ body {
 }
 
 .no-rgba .invitation-container {
-    background-image: url(/static/img/bg.jpg);
+    background-image: url(/static/img/ie-background.png);
+    background-repeat: no-repeat;
 }
 
 #pin1-container {
@@ -50,7 +51,8 @@ body {
 }
 
 .no-rgba #pin1-container {
-    background-image: url(/static/img/bg.jpg);
+    background-image: url(/static/img/ie-background.png);
+    background-repeat: no-repeat;
 }
 
 #pin2-container {
@@ -67,7 +69,8 @@ body {
 }
 
 .no-rgba #pin2-container {
-    background-image: url(/static/img/bg.jpg);
+    background-image: url(/static/img/ie-background.png);
+    background-repeat: no-repeat;
 }
 
 #pin1-arrow {
@@ -272,7 +275,8 @@ body {
 }
 
 .no-rgba .invitation-menu {
-    background-image: url(/static/img/bg.jpg);
+    background-image: url(/static/img/ie-background.png);
+    background-repeat: no-repeat;
 }
 .invitation-questions {
     font-family: 'Source Sans Pro', Arial, serif;
@@ -290,7 +294,8 @@ body {
 }
 
 .no-rgba .invitation-questions {
-    background-image: url(/static/img/bg.jpg);
+    background-image: url(/static/img/ie-background.png);
+    background-repeat: no-repeat;
 }
 
 
@@ -402,4 +407,17 @@ select {
     float: left;
     width: 300px;
     height: 61px;
+}
+
+#simuka {
+    position: relative;
+    float: left;
+    display: inline;
+    margin-left: -181px;
+}
+#nikolajus {
+    position: relative;
+    float: right;
+    margin-right: -171px;
+    display: inline;
 }

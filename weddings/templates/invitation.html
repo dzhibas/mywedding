@@ -22,7 +22,10 @@
 
 {% block content %}
 
+
 <div class="invitation-container">
+<div id="simuka"><img src="/static/img/simuka/0.png" width="150" height="150" alt="" border="0"></div>
+<div id="nikolajus"><img src="/static/img/nick/0.png" width="150" height="150" alt="" border="0"></div>
     <div class="datetime">
         {% trans "2012 rugsėjo 22d. 14:30 - Palangos bažnyčia" %}
     </div>
@@ -98,6 +101,8 @@
 <script type="text/javascript">
 window.jQuery(document).ready(function() {
     window.jQuery('.btn-group').button();
+    window.jQuery("#simuka").rotatingHead({imagePath: '/static/img/simuka/', width: 150, height: 150, margin: -181});
+    window.jQuery("#nikolajus").rotatingHead({imagePath: '/static/img/nick/', width: 150, height: 150});
 });
 
 function save_rsvp_answer(guest, answer)

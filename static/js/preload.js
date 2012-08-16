@@ -7,10 +7,11 @@
 
 (function($)
 {
-    $.fn.preload = function() {
+    $.fn.preload = function(path) {
         this.each(function()
         {
-            $('<img/>')[0].src = this;
+            var image_file = path + this;
+            $('<img/>')[0].src = image_file;
         });
     };
 })(jQuery);

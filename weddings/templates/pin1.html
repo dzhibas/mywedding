@@ -47,3 +47,20 @@
     </div>
 </div>
 {% endblock content %}
+
+{% block footer %}
+<script type="text/javascript">
+window.jQuery(document).ready(function() {
+    window.jQuery(['0.png', '12.png', 
+                   '13-30.png', '15.png',
+                   '16-30.png', '18.png',
+                   '19-30.png', '21.png',
+                   '22-30.png']).preload('/static/img/simuka/');
+    window.jQuery(['0.png', '12.png', 
+                   '13-30.png', '15.png',
+                   '16-30.png', '18.png',
+                   '19-30.png', '21.png',
+                   '22-30.png']).preload('/static/img/nick/');
+});
+</script>
+{% endblock footer %}

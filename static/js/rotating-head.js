@@ -53,6 +53,7 @@
 
                 $settings = jQuery.extend(true, {}, settings);
                 $settings.title = settings.title || elem.attr('title') || 'No title set';
+                $settings.margin = settings.margin || 0;
 
                 var rotatingHead = new RotatingHead(elem, $settings);
 
@@ -92,7 +93,7 @@
                     return $this.rotatingHead;
                 }
                 this.image = $('<img/>', {
-                        src: this.settings.imagePath + '0.jpg',
+                        src: this.settings.imagePath + '0.png',
                         width: this.settings.width,
                         height: this.settings.height,
                         border: 0
@@ -101,7 +102,7 @@
 
                 var pos = $(this.element).position();
                 this.top = pos.top;
-                this.left = pos.left;
+                this.left = pos.left+this.settings.margin;
                 this.width = this.settings.width;
                 this.height = $(this.image).height();
             },
@@ -114,41 +115,41 @@
 
                 if (this.x > this.left + this.width && this.y > this.top &&
                     this.y < this.top + this.height)
-                    $(this.image).attr('src', this.settings.imagePath + '15.jpg');
+                    $(this.image).attr('src', this.settings.imagePath + '15.png');
 
                 if (this.x > this.left+this.width && this.y < this.top)
-                    $(this.image).attr('src', this.settings.imagePath + '13-30.jpg');
+                    $(this.image).attr('src', this.settings.imagePath + '13-30.png');
 
                 if (this.x > this.left && this.x < this.left+this.width &&
                     this.y > this.top && this.y < this.top+this.height)
-                    $(this.image).attr('src', this.settings.imagePath + '0.jpg');
+                    $(this.image).attr('src', this.settings.imagePath + '0.png');
 
                 if (this.x > this.left && this.x < this.left+this.width &&
                     this.y < this.top)
-                    $(this.image).attr('src', this.settings.imagePath + '12.jpg');
+                    $(this.image).attr('src', this.settings.imagePath + '12.png');
 
                 if (this.x > this.left+this.width && this.y > this.top+this.height)
-                    $(this.image).attr('src', this.settings.imagePath + '16-30.jpg');
+                    $(this.image).attr('src', this.settings.imagePath + '16-30.png');
 
                 if (this.x > this.left && this.x < this.left+this.width &&
                     this.y > this.top+this.height)
-                    $(this.image).attr('src', this.settings.imagePath + '18.jpg');
+                    $(this.image).attr('src', this.settings.imagePath + '18.png');
 
                 if (this.x < this.left && this.y > this.top+this.height)
-                    $(this.image).attr('src', this.settings.imagePath + '19-30.jpg');
+                    $(this.image).attr('src', this.settings.imagePath + '19-30.png');
 
                 if (this.x < this.left && this.y > this.top && this.y < this.top + this.height)
-                    $(this.image).attr('src', this.settings.imagePath + '21.jpg');
+                    $(this.image).attr('src', this.settings.imagePath + '21.png');
 
                 if (this.x < this.left && this.y < this.top)
-                    $(this.image).attr('src', this.settings.imagePath + '22-30.jpg');
+                    $(this.image).attr('src', this.settings.imagePath + '22-30.png');
             },
 
             preloadImages: function() {
                 var path = this.settings.imagePath;
-                var images = ['12.jpg', '13-30.jpg', '15.jpg', '16-30.jpg',
-                        '18.jpg', '19-30.jpg', '21.jpg', '22-30.jpg',
-                        '0.jpg'];
+                var images = ['12.png', '13-30.png', '15.png', '16-30.png',
+                        '18.png', '19-30.png', '21.png', '22-30.png',
+                        '0.png'];
                 $.each(images, function(i, v) {
                     $('<img/>')[0].src = path+v;
                 });
