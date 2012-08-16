@@ -109,7 +109,7 @@ function save_rsvp_answer(guest, answer)
 {
     window.jQuery("#saving").show();
     window.jQuery.ajax({
-        url: "/a/"+guest+"/"+answer+"/",
+        url: "/a/"+guest+"/"+answer+"/"
     }).done(function(data) {
         if (data.success == 'true' && data.new_status) {
             window.jQuery("#guest-answer-"+guest).text(data.new_status);
@@ -122,7 +122,7 @@ function save_choice(choice)
 {
     window.jQuery("#saving").show();
     window.jQuery.ajax({
-        url: "/p/"+choice+"/",
+        url: "/p/"+choice+"/"
     }).done(function(data) {
         window.jQuery("#saving").hide();
     }).fail(function(data) {
