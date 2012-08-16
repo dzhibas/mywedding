@@ -134,14 +134,14 @@ msgstr ""
 msgid "Oi oi oi, tu negali pasirinkti šio svečio. Ar tikrai tai tu ?"
 msgstr ""
 
-#~ msgid "Not answered"
-#~ msgstr "Neatsakyta"
+msgid "Not answered"
+msgstr "Neatsakyta"
 
-#~ msgid "Will attend"
-#~ msgstr "Dalyvaus"
+msgid "Will attend"
+msgstr "Dalyvaus"
 
-#~ msgid "Will not attend"
-#~ msgstr "Nedalyvaus"
+msgid "Will not attend"
+msgstr "Nedalyvaus"
 
-#~ msgid "Maybe"
-#~ msgstr "Galbūt dalyvaus"
+msgid "Maybe"
+msgstr "Galbūt dalyvaus"
