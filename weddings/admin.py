@@ -34,9 +34,10 @@ def send_invitation(modeladmin, request, queryset):
             messages_to_send.append((subject, body_message % {'code': invitation.invite_code},
                 'nikolajus@gmail.com',
                 ['nikolajus@gmail.com', 'nikolajus@gmail.com']))
-            # TODO
+
             invitation.email_sent = True
             invitation.email_sent_at = datetime.now
+            invitation.save()
 
         else:
             messages.error(request, "Invitation %s has no emails assigned" % invitation)
