@@ -36,7 +36,7 @@ def send_invitation(modeladmin, request, queryset):
                 ['nikolajus@gmail.com', 'nikolajus@gmail.com']))
 
             invitation.email_sent = True
-            invitation.email_sent_at = datetime.now
+            invitation.email_sent_at = datetime.now()
             invitation.save()
 
         else:
