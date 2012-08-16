@@ -1,14 +1,59 @@
+# coding=utf-8
+
 from django.contrib import admin
 from django_markdown.admin import MarkdownModelAdmin
 from weddings.models import *
 from forms import InvitationForm
+from django.contrib import messages
+from django.core.mail import send_mass_mail
+from django.utils.translation import ugettext as _
+from django.utils.translation import activate
+from datetime import datetime
+
+
+def send_invitation(modeladmin, request, queryset):
+    messages_to_send = []
+
+    for invitation in queryset:
+        emails = []
+        guests = invitation.weddingguest_set.all()
+
+        # activating invitation language
+        activate(invitation.invitation_language)
+
+        # lazy translating
+        subject = _(u"Jūs pakviesti! Kur? Žiūrėkite į laiško vidų.")
+        body_message = _(u"Jūsų kodas: %(code)s \nJo prireiks apsilankius svetainėje: http://rsvp.gang.lt")
+
+        for g in guests:
+            if g.email != None and g.email.strip() != '':
+                emails.append(str(g.email))
+
+        if len(emails) > 0:
+            messages.info(request, "Successfully sent emails to: %s" % ','.join(emails))
+            messages_to_send.append((subject, body_message % {'code': invitation.invite_code},
+                'nikolajus@gmail.com',
+                ['nikolajus@gmail.com', 'nikolajus@gmail.com']))
+            # TODO
+            invitation.email_sent = True
+            invitation.email_sent_at = datetime.now
+
+        else:
+            messages.error(request, "Invitation %s has no emails assigned" % invitation)
+
+    if len(messages_to_send) > 0:
+        send_mass_mail(messages_to_send, fail_silently=False)
+
+
+send_invitation.short_description = "Send invitation to available recipients"
 
 
 class InvitationAdmin(admin.ModelAdmin):
     filter_horizontal = ('friends', )
     fields = ('invite_code', 'invitation_text', 'invitation_language', 'questions', 'invitation_guests', 'friends',)
-    list_display = ('invite_code', 'who_invited', 'invitation_text__name', 'invitation_language', 'invitation_text__title', 'questions')
+    list_display = ('invite_code', 'who_invited', 'invitation_text__name', 'invitation_language', 'invitation_text__title', 'questions', 'email_sent', 'email_sent_at')
     form = InvitationForm
+    actions = [send_invitation]
 
     def who_invited(self, obj):
         who = ""

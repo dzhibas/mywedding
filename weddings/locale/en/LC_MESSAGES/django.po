@@ -7,14 +7,27 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-09 15:46+0200\n"
-"PO-Revision-Date: 2012-08-09 15:50+0100\n"
+"POT-Creation-Date: 2012-08-16 14:22+0200\n"
+"PO-Revision-Date: 2012-08-16 14:23+0100\n"
 "Last-Translator: Nikolajus <nikolajus@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: admin.py:24
+msgid "Jūs pakviesti! Kur? Žiūrėkite į laiško vidų."
+msgstr "You are invited ! Where ? Look inside your email."
+
+#: admin.py:25
+#, python-format
+msgid ""
+"Jūsų kodas: %(code)s \n"
+"Jo prireiks apsilankius svetainėje: http://rsvp.gang.lt"
+msgstr ""
+"Your secret invitation code is: %(code)s \n"
+"You will need it in website: http://rsvp.gang.lt"
 
 #: templates/friends.html:7
 #: templates/menu.html:11
@@ -25,19 +38,19 @@ msgstr "Friend circle"
 msgid "pažiūrėkime ką atsakė jūsų draugų ratas"
 msgstr "lets see what your friend circle answered"
 
-#: templates/invitation.html:27
+#: templates/invitation.html:30
 msgid "2012 rugsėjo 22d. 14:30 - Palangos bažnyčia"
 msgstr "2012 september 22d. 14:30 (Lithuanian time) - Palanga church"
 
-#: templates/invitation.html:50
+#: templates/invitation.html:53
 msgid "Taip dalyvausiu"
 msgstr "Yes i will attend"
 
-#: templates/invitation.html:54
+#: templates/invitation.html:57
 msgid "Nedalyvausiu"
 msgstr "I cannot attend"
 
-#: templates/invitation.html:66
+#: templates/invitation.html:69
 msgid "Prašome atsakyti dar keletą klausimų"
 msgstr "Please answer some more questions"
 
@@ -57,19 +70,19 @@ msgstr "Map & agenda"
 msgid "Klausk? - atsakysim!"
 msgstr "Questions / Answers"
 
-#: templates/pin1.html:19
+#: templates/pin1.html:23
 msgid "Jei užėjote čia, reiškia esate pakviesti"
 msgstr "If you are here, means you invited"
 
-#: templates/pin1.html:20
+#: templates/pin1.html:24
 msgid "bet mes įtarūs, tad įveskite prašom kodą kurį gavote kartu su el. pakvietimu"
 msgstr "but we are suspicious, please enter invitation code provided in your email"
 
-#: templates/pin1.html:36
+#: templates/pin1.html:40
 msgid "KODAS"
 msgstr "CODE"
 
-#: templates/pin1.html:37
+#: templates/pin1.html:41
 #: templates/pin2.html:38
 #: templates/pin2.html.py:52
 msgid "Toliau"

@@ -26,6 +26,9 @@ class Invitation(models.Model):
 
     invitation_language = models.CharField(max_length=7, choices=LANGUAGES, default='en')
 
+    email_sent = models.BooleanField(default=False, verbose_name=u'Is email sent?')
+    email_sent_at = models.DateTimeField(verbose_name=u'When sent?', blank=True, null=True)
+
     def __unicode__(self):
         return self.invite_code
 

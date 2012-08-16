@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-09 15:46+0200\n"
+"POT-Creation-Date: 2012-08-16 14:22+0200\n"
 "PO-Revision-Date: 2012-08-06 17:13+0100\n"
 "Last-Translator: Nikolajus <nikolajus@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,6 +18,17 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
 "%100<10 || n%100>=20) ? 1 : 2)\n"
 
+#: admin.py:24
+msgid "Jūs pakviesti! Kur? Žiūrėkite į laiško vidų."
+msgstr ""
+
+#: admin.py:25
+#, python-format
+msgid ""
+"Jūsų kodas: %(code)s \n"
+"Jo prireiks apsilankius svetainėje: http://rsvp.gang.lt"
+msgstr ""
+
 #: templates/friends.html:7 templates/menu.html:11
 msgid "Draugų ratas"
 msgstr ""
@@ -26,19 +37,19 @@ msgstr ""
 msgid "pažiūrėkime ką atsakė jūsų draugų ratas"
 msgstr ""
 
-#: templates/invitation.html:27
+#: templates/invitation.html:30
 msgid "2012 rugsėjo 22d. 14:30 - Palangos bažnyčia"
 msgstr ""
 
-#: templates/invitation.html:50
+#: templates/invitation.html:53
 msgid "Taip dalyvausiu"
 msgstr ""
 
-#: templates/invitation.html:54
+#: templates/invitation.html:57
 msgid "Nedalyvausiu"
 msgstr ""
 
-#: templates/invitation.html:66
+#: templates/invitation.html:69
 msgid "Prašome atsakyti dar keletą klausimų"
 msgstr ""
 
@@ -58,20 +69,20 @@ msgstr ""
 msgid "Klausk? - atsakysim!"
 msgstr ""
 
-#: templates/pin1.html:19
+#: templates/pin1.html:23
 msgid "Jei užėjote čia, reiškia esate pakviesti"
 msgstr ""
 
-#: templates/pin1.html:20
+#: templates/pin1.html:24
 msgid ""
 "bet mes įtarūs, tad įveskite prašom kodą kurį gavote kartu su el. pakvietimu"
 msgstr ""
 
-#: templates/pin1.html:36
+#: templates/pin1.html:40
 msgid "KODAS"
 msgstr ""
 
-#: templates/pin1.html:37 templates/pin2.html:38 templates/pin2.html.py:52
+#: templates/pin1.html:41 templates/pin2.html:38 templates/pin2.html.py:52
 msgid "Toliau"
 msgstr ""
 
@@ -134,14 +145,14 @@ msgstr ""
 msgid "Oi oi oi, tu negali pasirinkti šio svečio. Ar tikrai tai tu ?"
 msgstr ""
 
-msgid "Not answered"
-msgstr "Neatsakyta"
+#~ msgid "Not answered"
+#~ msgstr "Neatsakyta"
 
-msgid "Will attend"
-msgstr "Dalyvaus"
+#~ msgid "Will attend"
+#~ msgstr "Dalyvaus"
 
-msgid "Will not attend"
-msgstr "Nedalyvaus"
+#~ msgid "Will not attend"
+#~ msgstr "Nedalyvaus"
 
-msgid "Maybe"
-msgstr "Galbūt dalyvaus"
+#~ msgid "Maybe"
+#~ msgstr "Galbūt dalyvaus"
