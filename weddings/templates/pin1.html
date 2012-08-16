@@ -4,7 +4,7 @@
 {% block content %}
 <div id="language-icons" class="clearfix">
     <ul>
-        <li><a href="/nl/1/" title="Dutch taal"><img src="/static/img/flags/nl.png" width="16" height="11" alt="Dutch taal" border="0"></a></li>
+        {# <li><a href="/nl/1/" title="Dutch taal"><img src="/static/img/flags/nl.png" width="16" height="11" alt="Dutch taal" border="0"></a></li> #}
         <li><a href="/en/1/" title="English language"><img src="/static/img/flags/gb.png" width="16" height="11" alt="English language" border="0"></a></li>
         <li><a href="/ru/1/" title="Руский язык"><img src="/static/img/flags/ru.png" width="16" height="11" alt="Руский язык" border="0"></a></li>
         <li><a href="/lt/1/" title="Lietuvių kalba"><img src="/static/img/flags/lt.png" width="16" height="11" alt="Lietuvių kalba" border="0"></a></li>
@@ -12,7 +12,11 @@
 </div>
 <div id="pin1-container">
     <div class="pin1-head">
-        <img src="/static/img/simuka-security.png" width="108" height="108" border="0" alt="">
+        {% if not messages %}
+            <img src="/static/img/pin1-simuka-1.png" width="108" height="108" border="0" alt="">
+        {% else %}
+            <img src="/static/img/pin1-simuka-error.png" width="108" height="108" border="0" alt="">
+        {% endif %}
     </div>
 
     <div class="pin1-title">
