@@ -431,3 +431,21 @@ select {
     color: #fff;
     text-decoration: underline;
 }
+
+.agenda ul {
+    margin: 0;
+    padding: 0;
+}
+.agenda li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 15px;
+}
+
+.agenda-time {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 700;
+    width: 59px;
+}
