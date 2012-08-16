@@ -124,6 +124,7 @@ class PollAlladmin(admin.ModelAdmin):
 
 
 class QuestionAdmin(admin.ModelAdmin):
+    list_display = ('question', 'description', 'poll',)
     inlines = [ChoiceInline]
 
 admin.site.register(Question, QuestionAdmin)
