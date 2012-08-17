@@ -76,7 +76,7 @@
                 <div class="question-answers">
                     <div class="btn-group" data-toggle="buttons-radio">
                     {% for choice in question.choices.all %}
-                      <button onclick="javascript:save_choice({{choice.pk}});" class="btn btn-primary btn-small {% if choice.pk in poll_answers %}active{%endif%}">
+                      <button onclick="javascript:save_choice({{choice.pk}}, {{question.pk}});" class="btn btn-primary btn-small {% if choice.pk in poll_answers %}active{%endif%}">
                         {% trans choice.text %}
                       </button>
                     {% endfor %}
@@ -85,6 +85,21 @@
 
                 <div class="question-question">{{question.question}}</div>
                 <div class="question-description">{{question.description}}</div>
+                {% if question.is_freetext_answer %}
+                <div id="question_freetext_{{question.pk}}" {% if question.pk not in questions_has_answers %}style="display:none;"{% endif %}>
+                    <i>{% trans "Norite pakomentuoti savo atsakymą ?" %}</i>
+                    <div class="input-append">
+                        <input id="q_text_{{question.id}}" type="text" name="comment" value="{% spaceless %}{% if question.id in ff_answers %}
+                            {% for ffa_i,ffa_v in ff_answers.items %}
+                                    {% if ffa_i == question.id %}
+                                        {{ffa_v}}
+                                    {% endif %}
+                            {% endfor %}
+                        {% endif %}{% endspaceless %}">
+                        <button class="btn" onclick="javascript:save_comment({{question.pk}});">{% trans "Siųsti komentarą mums" %}</button>
+                    </div>
+                </div>
+                {% endif %}
             </div>
             {% endfor %}
 
@@ -118,11 +133,27 @@ function save_rsvp_answer(guest, answer)
     });
 }
 
-function save_choice(choice)
+function save_choice(choice, question)
 {
     window.jQuery("#saving").show();
     window.jQuery.ajax({
         url: "/p/"+choice+"/"
+    }).done(function(data) {
+        window.jQuery("#saving").hide();
+        window.jQuery("#question_freetext_"+question).show();
+    }).fail(function(data) {
+        window.jQuery("#saving").hide();
+    });
+}
+
+function save_comment(question)
+{
+    var message = window.jQuery("#q_text_"+question).val();
+    var encoded_message = encodeURIComponent(message);
+    var url = "/t/"+question+"/?t=" + encoded_message;
+    window.jQuery("#saving").show();
+    window.jQuery.ajax({
+        url: url
     }).done(function(data) {
         window.jQuery("#saving").hide();
     }).fail(function(data) {

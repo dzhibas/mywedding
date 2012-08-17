@@ -133,7 +133,7 @@ admin.site.register(Poll, PollAlladmin)
 
 class UserChoiceAdmin(admin.ModelAdmin):
     model = UserChoice
-    list_display = ('weddingguest', 'choice__question', 'choice', 'invitation', 'who_invited', )
+    list_display = ('weddingguest', 'choice__question', 'choice', 'invitation', 'who_invited', 'freetext_answer', )
 
     def choice__question(self, obj):
         return obj.choice.question

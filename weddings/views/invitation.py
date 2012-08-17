@@ -2,6 +2,7 @@ from django.views.generic import TemplateView
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from weddings.models import Invitation, UserChoice, WeddingGuest
+from django.utils.html import escape
 
 
 class InvitationView(TemplateView):
@@ -46,7 +47,17 @@ class InvitationView(TemplateView):
             answers.filter(weddingguest=self.guest)
 
         all_choices = [answer.choice.pk for answer in answers]
+
         context['poll_answers'] = all_choices
+
+        context['questions_has_answers'] = [answer.choice.question.pk for answer in answers]
+
+        ff_answer = {}
+        for answer in answers:
+            if answer.freetext_answer != None and answer.freetext_answer != '':
+                ff_answer[answer.choice.question.pk] = escape(answer.freetext_answer)
+
+        context['ff_answers'] = ff_answer
 
         return context
 

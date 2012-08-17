@@ -132,6 +132,7 @@ class Question(models.Model):
     question = models.TextField('Question')
     description = models.TextField('Description', null=True, blank=True)
     poll = models.ForeignKey(Poll, related_name="questions")
+    is_freetext_answer = models.BooleanField(default=False)
 
     objects = QuestionManager()
 
@@ -184,6 +185,8 @@ class UserChoice(models.Model):
     choice = models.ForeignKey(Choice, related_name="users")
     weddingguest = models.ForeignKey(WeddingGuest, related_name="poll_answers")
     invitation = models.ForeignKey(Invitation, related_name="poll_answers")
+    freetext_answer = models.TextField(null=True, blank=True)
+
     timestamp = models.DateTimeField(default=datetime.now)
 
     class Meta:

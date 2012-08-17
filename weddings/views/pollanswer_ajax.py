@@ -3,6 +3,69 @@ from django.http import HttpResponse
 from django.utils import simplejson
 
 
+def poll_comment(request, question_id, *args, **kwargs):
+    response_data = {}
+    response_data['success'] = 'false'
+    json_data = simplejson.dumps(response_data)
+    response = HttpResponse(json_data, mimetype='application/javascript')
+
+    if 't' not in request.GET:
+        return response
+
+    if request.GET['t'].strip() == '':
+        return response
+
+    # if unkown actor
+    if 'pin_provided' not in request.session or 'logged_pin' not in request.session:
+        return response
+
+    # double check if invitation exists
+    invitation = check_pin(request.session['logged_pin'])
+    if invitation == False:
+        return response
+
+    real_guests = invitation.weddingguest_set.filter(invited=False)
+    real_guest_count = len(real_guests)
+    wedding_guest = None
+
+    if real_guest_count < 2:
+        wedding_guest = real_guests[0]
+    else:
+        # import ipdb; ipdb.set_trace()
+        if 'logged_in_guest' in request.session:
+            try:
+                wedding_guest = invitation.weddingguest_set.get(pk=int(request.session['logged_in_guest']))
+            except:
+                return response
+
+    if wedding_guest == None:
+        return response
+
+    question_id = int(question_id)
+
+    # check if there is no answer already for this question
+    already_answed = UserChoice.objects.filter(choice__question=question_id, invitation=invitation, weddingguest=wedding_guest)
+    if len(already_answed) > 0:
+        uc = already_answed[0]
+
+        uc.freetext_answer = request.GET['t']
+        uc.save()
+    else:
+        response_data = {}
+        response_data['success'] = 'false'
+        response_data['message'] = 'Not yet answered to question'
+        response = HttpResponse(json_data, mimetype='application/json')
+        return response
+
+    response_data = {}
+    response_data['success'] = 'true'
+
+    json_data = simplejson.dumps(response_data)
+    response = HttpResponse(json_data, mimetype='application/json')
+
+    return response
+
+
 def poll_answer(request, *args, **kwargs):
     response_data = {}
     response_data['success'] = 'false'
