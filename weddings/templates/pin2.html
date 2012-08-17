@@ -8,9 +8,13 @@
     </div>
 
     <div class="pin1-title">
-        <h1>{% trans "Hey! Jūs tikrai pakviesti. Džiaugiuosi kad užėjot" %}</h1>
-        <p>{% trans "dabar norėtume sužinoti kuris būtent esate" %}</p>
-        <p>{% trans "pasirinkite žemiau esančiame langelyje savo vardą/pavardę ar slapyvardį" %}</p>
+        <h1>{% trans "Valiooo!!! Jūs tikrai pakviestas !" %}</h1>
+        {% if guest_count > 1 %}
+            <p>{% trans "Džiugu ir smagu matyti čia. Dabar norėčiau sužinoti kuris būtent esate, kad galėčiau jūsų veiksmus sekti :), tad prašome nemeluoti ir sąžingai atsakyti." %}</p>
+            <p>{% trans "pasirinkite žemiau esančiame langelyje savo vardą/pavardę arba slapyvardį:" %}</p>
+        {% else %}
+            <p>{% trans "Džiugu is smagu jūs matyti čia" %}</p>
+        {% endif %}
         <div class="pin2-input">
             <form action="" method="post">
                 {% csrf_token %}
@@ -27,7 +31,7 @@
                 {# Patikrinam ar nera jis tik vienas svecias cia #}
                 {% if guest_count == 1 %}
                     <div class="controls">
-                        <center><a href="{% url invitation %}" class="btn btn-large btn-primary">{% trans "Į kvietimą" %}</a></center>
+                        <center><a href="{% url invitation %}" class="btn btn-large btn-primary">{% trans "Tiesiai į kvietimą" %}</a></center>
                     </div>
                     
                     <p>{% trans "<b>Hey</b>!<br/>Panašu kad Jūs vienas be poros. Negerai... Jei ketinate ateiti su kažkuo prašome užpildyti Jūsų poros vardą pavardę. Jei ketinate ateiti vieni tiesiog spauskite '<b>Toliau</b>'" %}</p>

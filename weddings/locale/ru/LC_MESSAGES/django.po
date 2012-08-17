@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-17 11:11+0200\n"
-"PO-Revision-Date: 2012-08-17 11:14+0100\n"
+"POT-Creation-Date: 2012-08-17 11:39+0200\n"
+"PO-Revision-Date: 2012-08-17 12:02+0100\n"
 "Last-Translator: Nikolajus <nikolajus@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -96,48 +96,52 @@ msgid "Klausk? - atsakysim!"
 msgstr "Посылай вопрос"
 
 #: templates/pin1.html:23
-msgid "Jei užėjote čia, reiškia esate pakviesti"
-msgstr "Эсли вы тут, значет вы приглашены"
+msgid "Sveiki! Jei užsukote čia, greičiausiai ne šiaip sau!"
+msgstr "Если вы тут, быстрее всего не просто так!"
 
 #: templates/pin1.html:24
-msgid "bet mes įtarūs, tad įveskite prašom kodą kurį gavote kartu su el. pakvietimu"
-msgstr "но мы параноики, так што даваите ввадите код каторый палучили в писме"
+msgid "Tik mes esame įtarūs, taigi prašome Jūsų įvesti kodą, kurį turėtumėte būti gavęs ;)"
+msgstr "Только мы немношко подозрительныэ, по таму просим вас ввести код, катории далжни были получит ;)"
 
 #: templates/pin1.html:40
 msgid "KODAS"
 msgstr "КОД"
 
 #: templates/pin1.html:41
-#: templates/pin2.html:38
-#: templates/pin2.html.py:52
+#: templates/pin2.html:42
+#: templates/pin2.html.py:56
 msgid "Toliau"
 msgstr "Дальше"
 
 #: templates/pin2.html:11
-msgid "Hey! Jūs tikrai pakviesti. Džiaugiuosi kad užėjot"
-msgstr "Еи, вы точно приглашены. Я рад што зашли,"
-
-#: templates/pin2.html:12
-msgid "dabar norėtume sužinoti kuris būtent esate"
-msgstr "прашу вас виберите кто вы такой, штоб мы знали с кем мы имеэм дела"
+msgid "Valiooo!!! Jūs tikrai pakviestas !"
+msgstr "Урааааа!!! Вы преглашэны!"
 
 #: templates/pin2.html:13
-msgid "pasirinkite žemiau esančiame langelyje savo vardą/pavardę ar slapyvardį"
-msgstr "выберите ниже своё имя"
+msgid "Džiugu ir smagu matyti čia. Dabar norėčiau sužinoti kuris būtent esate, kad galėčiau jūsų veiksmus sekti :), tad prašome nemeluoti ir sąžingai atsakyti."
+msgstr "Мы очень рады вас видеть здесь. Типерь хачю попрасить выбрать вашо имя внезу:"
 
-#: templates/pin2.html:30
-msgid "Į kvietimą"
+#: templates/pin2.html:14
+msgid "pasirinkite žemiau esančiame langelyje savo vardą/pavardę arba slapyvardį:"
+msgstr "выберите ниже своё имя:"
+
+#: templates/pin2.html:16
+msgid "Džiugu is smagu jūs matyti čia"
+msgstr "Мы очень рады вас видеть здесь :)"
+
+#: templates/pin2.html:34
+msgid "Tiesiai į kvietimą"
 msgstr "Пряма в приглашениа"
 
-#: templates/pin2.html:33
+#: templates/pin2.html:37
 msgid "<b>Hey</b>!<br/>Panašu kad Jūs vienas be poros. Negerai... Jei ketinate ateiti su kažkuo prašome užpildyti Jūsų poros vardą pavardę. Jei ketinate ateiti vieni tiesiog spauskite '<b>Toliau</b>'"
 msgstr "Оопсик. Вроде бы вы одни в приглашение. Эсли хочете ково нибуть пасвать набирите Имя и фамилия ниже и нажмите \"Дальше\""
 
-#: templates/pin2.html:37
+#: templates/pin2.html:41
 msgid "Vardas Pavardė"
 msgstr "Имя и фамилия"
 
-#: templates/pin2.html:47
+#: templates/pin2.html:51
 msgid "nurodyk kas tu ?"
 msgstr "кто ты?"
 
@@ -170,3 +174,17 @@ msgstr "Выберите гостя из списка ниже"
 msgid "Oi oi oi, tu negali pasirinkti šio svečio. Ar tikrai tai tu ?"
 msgstr "Оопс. Вам нильзиа выбрать етово гостя."
 
+#~ msgid "Jei užėjote čia, reiškia esate pakviesti"
+#~ msgstr "Эсли вы тут, значет вы приглашены"
+
+#~ msgid ""
+#~ "bet mes įtarūs, tad įveskite prašom kodą kurį gavote kartu su el. "
+#~ "pakvietimu"
+#~ msgstr ""
+#~ "но мы параноики, так што даваите ввадите код каторый палучили в писме"
+
+#~ msgid "Hey! Jūs tikrai pakviesti. Džiaugiuosi kad užėjot"
+#~ msgstr "Еи, вы точно приглашены. Я рад што зашли,"
+
+#~ msgid "dabar norėtume sužinoti kuris būtent esate"
+#~ msgstr "прашу вас виберите кто вы такой, штоб мы знали с кем мы имеэм дела"
