@@ -4,20 +4,21 @@
 
 {% block extrahead %}
     <link rel="stylesheet" type="text/css" href="/static/css/360player.css" />
-    <!--[if IE]><script type="text/javascript" src="/static/js/360/excanvas.js"></script><![endif]-->
-    <script type="text/javascript" src="/static/js/360/berniecode-animator.js"></script>
-    <script type="text/javascript" src="/static/libs/soundmanager2-jsmin.js"></script>
-    <script type="text/javascript" src="/static/js/360/360player.js"></script>
-    <script type="text/javascript">
-    soundManager.setup({
-      url: '/static/swf/',
-      defaultOptions: {
-        volume: 50,
-        stream: true
-      }
-    });
-    </script>
+    <style type="text/css">
+    .ui360,
+    .sm2-360ui {
+     min-width:50px; /* should always be at least this. */
+     min-height:50px;
+    }
 
+    .sm2-360ui {
+     width:50px;
+     height:50px;
+    }
+    #pirslybos {
+        cursor: pointer;
+    }
+    </style>
 {% endblock extrahead %}
 
 {% block content %}
@@ -118,6 +119,10 @@ window.jQuery(document).ready(function() {
     window.jQuery('.btn-group').button();
     window.jQuery("#simuka").rotatingHead({imagePath: '/static/img/simuka/', width: 150, height: 150, margin: -181});
     window.jQuery("#nikolajus").rotatingHead({imagePath: '/static/img/nick/', width: 150, height: 150});
+
+    window.jQuery("#pirslybos").click(function() {
+        window.open("/player/", "player", "width=290,height=290,fullscreen=0,menubar=0,location=0,resizable=0, scrollbars=0,titlebar=0,status=0");
+    });
 });
 
 function save_rsvp_answer(guest, answer)

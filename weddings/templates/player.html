@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+    <link rel="stylesheet" type="text/css" href="/static/css/360player.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/360player-visualization.css">
+    <!-- soundManager.useFlashBlock: related CSS -->
+    <link rel="stylesheet" type="text/css" href="/static/css/flashblock.css" />
+
+    <!--[if IE]><script type="text/javascript" src="/static/js/360/excanvas.js"></script><![endif]-->
+    <script type="text/javascript" src="/static/js/360/berniecode-animator.js"></script>
+
+    <script type="text/javascript" src="/static/libs/soundmanager2-jsmin.js"></script>
+    <script type="text/javascript" src="/static/js/360/360player.js"></script>
+    <script type="text/javascript">
+    soundManager.setup({
+      url: '/static/swf/',
+      defaultOptions: {
+        volume: 70,
+        stream: true
+      }
+    });
+    </script>
+{% endblock extrahead %}
+
+{% block content %}
+    <div class="sm2-inline-list">
+        <div id="pirslybos-window" class="ui360 ui360-vis"><a href="/static/mp3/pirslybos.mp3">Piršlybos</a></div>
+    </div>
+{% endblock content %}

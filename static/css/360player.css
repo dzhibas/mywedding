@@ -7,13 +7,13 @@
 
 .ui360,
 .sm2-360ui {
- min-width:50px; /* should always be at least this. */
- min-height:50px;
+ min-width:250px; /* should always be at least this. */
+ min-height:250px;
 }
 
 .sm2-360ui {
- width:50px;
- height:50px;
+ width:250px;
+ height:250px;
 }
 
 .ui360,
@@ -62,7 +62,7 @@
 
 .ui360 a:hover,
 .ui360 a:focus {
- background:#eee;
+ /*background:#eee;*/
  border-radius:3px;
  outline:none;
 }

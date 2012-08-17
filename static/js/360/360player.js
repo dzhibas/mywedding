@@ -54,12 +54,14 @@ function ThreeSixtyPlayer() {
   this.callbackCount = 0;
   this.peakDataHistory = [];
 
+   
+
   // 360player configuration options
   this.config = {
 
     playNext: false,   // stop after one sound, or play through list until end
-    autoPlay: false,   // start playing the first sound right away
-    autoLoad: false,   // start playing the first sound right away
+    autoPlay: true,   // start playing the first sound right away
+    autoLoad: true,   // start playing the first sound right away
     steam: true,   // start playing the first sound right away
     allowMultiple: false,  // let many sounds play at once (false = only one sound playing at a time)
     loadRingColor: '#ccc', // how much has loaded
@@ -80,7 +82,7 @@ function ThreeSixtyPlayer() {
     scaleFont: true,  // also set the font size (if possible) while animating the circle
 
     // optional: spectrum or EQ graph in canvas (not supported in IE <9, too slow via ExCanvas)
-    useWaveformData: false,
+    useWaveformData: true,
     waveformDataColor: '#0099ff',
     waveformDataDownsample: 3, // use only one in X (of a set of 256 values) - 1 means all 256
     waveformDataOutside: false,
@@ -88,7 +90,7 @@ function ThreeSixtyPlayer() {
     waveformDataLineRatio: 0.64,
 
     // "spectrum frequency" option
-    useEQData: false,
+    useEQData: true,
     eqDataColor: '#339933',
     eqDataDownsample: 4, // use only one in X (of 256 values)
     eqDataOutside: true,
