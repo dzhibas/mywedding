@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-17 11:39+0200\n"
+"POT-Creation-Date: 2012-08-18 00:10+0200\n"
 "PO-Revision-Date: 2012-08-16 15:01+0100\n"
 "Last-Translator: Nikolajus <nikolajus@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -41,8 +41,12 @@ msgstr ""
 #: admin.py:33
 #, python-format
 msgid ""
-"Jūsų kodas: %(code)s \n"
-"Jo prireiks apsilankius svetainėje: http://rsvp.gang.lt"
+"Berniukas sutiko mergaitę. Tiesa, prieš 10 metų. Likusią istorijos\n"
+"dalį sužinosite prisijungę prie mūsų šventės.\n"
+"\n"
+"Jūsų kodas: %(code)s\n"
+"\n"
+"Apsilankykitę svetainėje: http://rsvp.gang.lt sužinosite daugiau. Iki."
 msgstr ""
 
 #: templates/friends.html:7 templates/menu.html:11
@@ -53,27 +57,27 @@ msgstr ""
 msgid "pažiūrėkime ką atsakė jūsų draugų ratas"
 msgstr ""
 
-#: templates/invitation.html:30
+#: templates/invitation.html:31
 msgid "2012 rugsėjo 22d. 14:30 - Palangos bažnyčia"
 msgstr ""
 
-#: templates/invitation.html:53
+#: templates/invitation.html:54
 msgid "Taip dalyvausiu"
 msgstr ""
 
-#: templates/invitation.html:57
+#: templates/invitation.html:58
 msgid "Nedalyvausiu"
 msgstr ""
 
-#: templates/invitation.html:69
+#: templates/invitation.html:70
 msgid "Prašome atsakyti dar keletą klausimų"
 msgstr ""
 
-#: templates/invitation.html:90
+#: templates/invitation.html:91
 msgid "Norite pakomentuoti savo atsakymą ?"
 msgstr ""
 
-#: templates/invitation.html:99
+#: templates/invitation.html:100
 msgid "Siųsti komentarą mums"
 msgstr ""
 

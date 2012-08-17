@@ -30,7 +30,7 @@ def send_invitation(modeladmin, request, queryset):
 
         # lazy translating
         subject = _(u"Jūs pakviesti! Kur? Žiūrėkite į laiško vidų.")
-        body_message = _(u"Jūsų kodas: %(code)s \nJo prireiks apsilankius svetainėje: http://rsvp.gang.lt")
+        body_message = _(u"Berniukas sutiko mergaitę. Tiesa, prieš 10 metų. Likusią istorijos\ndalį sužinosite prisijungę prie mūsų šventės.\n\nJūsų kodas: %(code)s\n\nApsilankykitę svetainėje: http://rsvp.gang.lt sužinosite daugiau. Iki.")
 
         for g in guests:
             if g.email != None and g.email.strip() != '':
