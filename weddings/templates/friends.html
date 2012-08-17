@@ -12,7 +12,7 @@
             <div class="friend-list clearfix">
                 
                 {% for friend in friends %}
-                <div class="friend">
+                <div class="friend friend-status-{{friend.rsvp_answer}}">
                     <div class="friend-name">{{friend.full_name}}</div>
                     <div class="friend-answer">{% trans friend.get_rsvp_answer_display %}</div>
                 </div>

@@ -1,6 +1,6 @@
 body {
     background-image: url(/static/img/bg.jpg);
-    background-repeat: no-repeat;
+    background-repeat: repeat-y;
     background-position: center top;
     background-size: 100% auto;
 }
@@ -453,4 +453,24 @@ select {
 .question-description a, .question-description a:visited, .question-description a:active, .question-description a:hover {
     color: #fff;
     text-decoration: underline;
+}
+
+
+.friend-status-1 {
+
+}
+
+.friend-status-0, .friend-status-0 .friend-answer {
+    color: #A76E6E;
+}
+
+.friend-status-2, .friend-status-2 .friend-answer {
+    color: #000;
+}
+
+.friend-status-3 {
+    color: #CE1B1B;
+}
+.friend-status-3 .friend-answer {
+    color: #FFA0A0;
 }
