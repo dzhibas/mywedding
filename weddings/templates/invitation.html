@@ -85,7 +85,7 @@
                 </div>
 
                 <div class="question-question">{{question.question}}</div>
-                <div class="question-description">{{question.description}}</div>
+                <div class="question-description">{{question.description|safe}}</div>
                 {% if question.is_freetext_answer %}
                 <div id="question_freetext_{{question.pk}}" {% if question.pk not in questions_has_answers %}style="display:none;"{% endif %}>
                     <i>{% trans "Norite pakomentuoti savo atsakymą ?" %}</i>
