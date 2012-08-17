@@ -53,6 +53,7 @@ class WeddingGuest(models.Model):
     class Meta:
         verbose_name = u'Wedding guest'
         verbose_name_plural = u'Wedding guests'
+        ordering = ['first_name', 'last_name', '-email']
 
     RSVP_ANSWERS = (
             (0, "Not answered"),
