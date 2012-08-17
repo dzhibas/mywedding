@@ -449,3 +449,8 @@ select {
     font-weight: 700;
     width: 59px;
 }
+
+.question-description a, .question-description a:visited, .question-description a:active, .question-description a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
