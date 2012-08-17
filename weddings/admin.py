@@ -40,7 +40,7 @@ def send_invitation(modeladmin, request, queryset):
             messages.info(request, "Successfully sent emails to: %s" % ','.join(emails))
             messages_to_send.append((subject, body_message % {'code': invitation.invite_code},
                 'nikolajus@gmail.com',
-                ['nikolajus@gmail.com', 'nikolajus@gmail.com']))
+                emails))
 
             invitation.email_sent = True
             invitation.email_sent_at = datetime.now()
