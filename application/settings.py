@@ -8,7 +8,7 @@ ADMINS = (
    #('Nikolajus', 'nikolajus@gmail.com'),
 )
 
-SENTRY_DSN = 'http://1a96de74a21846a69b8aaee9d3013136:00bb1806628c4e12a37247c8d7743bb2@server.gang.lt/4'
+# SENTRY_DSN = 'http://X:X@HOST/4'
 
 MANAGERS = ADMINS
 
