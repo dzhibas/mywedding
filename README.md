@@ -3,7 +3,7 @@ mywedding
 
 mywedding - wedding invitation and RSVP website in django
 
-wedding invitation and RSVP i created for my wedding: http://rsvp.gang.lt
+wedding invitation and RSVP i created for my wedding: http://rsvp.gang.lt/en
 
 you can clone, modify and use it for your own wedding
 
